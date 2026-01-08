@@ -1,0 +1,139 @@
+# 导演指令手册
+
+本文档列出了控制游戏视觉和音频方面的所有可用指令。这些标签可以插入故事文本中，或由 AI 导演输出。
+
+## 1. 角色管理 (登场/退场)
+
+在场景中添加或移除角色。
+
+**语法:**
+*   **登场 (Join):** `[Join-Name]` 或 `[Join-Name-Preset]`
+    *   使用 `assets/character_map.json` 中定义的默认身体和表情生成角色。
+    *   可选的 `Preset` 决定初始位置（默认: `pos_center`）。
+*   **退场 (Leave):** `[Leave-Name]`
+    *   从屏幕上移除角色。
+
+**示例:**
+*   `[Join-chiguo]` - 迟菓出现在中间。
+*   `[Join-moxiaoju-pos_left]` - 墨小菊出现在左边。
+*   `[Leave-chiguo]` - 迟菓消失。
+
+## 2. 角色表情 (Faces)
+
+更改角色的面部表情。角色必须先登场（如果在映射表中，会自动加载）。
+
+**语法:** `[fg-Name-Expression]`
+
+*   **Name:** 角色标识符（例如 `chiguo`, `moxiaoju`）。对应 `assets/character_map.json` 中的键。
+*   **Expression:** 表情名称（例如 `happy`, `sad`, `010101`）。对应 `assets/character_map.json` 中的键。
+
+**示例:**
+*   `[fg-chiguo-happy]` - 切换迟菓为开心表情。
+*   `[fg-moxiaoju-sad]` - 切换墨小菊为悲伤表情。
+
+**注意:** 您可以在 `assets/character_map.json` 中定义像 "happy" 这样的友好名称来映射到特定的图像文件。
+
+## 3. 角色位置与缩放 (预设 Presets)
+
+使用预定义预设移动或缩放角色。
+
+**语法:** `[Sprite-Name-Preset]`
+
+*   **Name:** 角色标识符。
+*   **Preset:** `assets/presets.json` 中的键（在 设置 -> 开发者 中配置）。
+
+**默认预设:**
+*   `[Sprite-chiguo-pos_center]` - 移至中间。
+*   `[Sprite-chiguo-pos_left]` - 移至左边。
+*   `[Sprite-chiguo-pos_right]` - 移至右边。
+*   `[Sprite-chiguo-zoom_half]` - 缩放至 0.5倍。
+
+## 4. 背景音乐 (BGM)
+
+播放背景音乐曲目。BGM 默认无限循环播放，直到播放新的 BGM 或执行停止指令。
+
+**语法:** 
+*   **播放:** `[Music-TrackName]`
+    *   **TrackName:** 不带扩展名的文件名（例如 `尘埃落定`）。系统会搜索 `assets/bgm`。
+*   **停止:** `[StopBGM]`
+    *   立即停止当前播放的背景音乐。
+
+**示例:**
+*   `[Music-尘埃落定]`
+*   `[Music-阳光下的公园]`
+*   `[StopBGM]`
+
+## 5. 背景图片
+
+切换背景场景。
+
+**语法:** `[Background-ImageName]`
+
+*   **ImageName:** `assets/background_map.json` 中的键（例如 `bg01_am`）或者直接的文件路径。
+
+**工作流:**
+1.  运行 `scan_backgrounds.py` 以索引 `assets/bg` 中的新文件。
+2.  打开 `assets/background_map.json` 查看可用键。
+3.  在标签中使用键: `[Background-bg01_am]`.
+
+**示例:**
+*   `[Background-bg01_am]`
+*   `[Background-school_gate]` (如果已映射)
+
+## 6. 动画 (旧版 Legacy)
+
+简单的程序化动画。
+
+**语法:** `[立绘-Name-Action]` (中文标签旧版支持)
+
+*   **Action:** `shake` (震动), `jump` (跳跃).
+
+**示例:**
+*   `[立绘-chiguo-shake]`
+
+## 7. 文本流控制 (Text Flow Control)
+
+控制对话框中文本的节奏和显示。
+
+**语法:**
+*   `[r]`: **阅读/继续 (Read/Resume)**。
+    *   立即暂停文本输出。
+    *   **手动模式:** 等待玩家点击或按空格键。
+    *   **自动模式:** 等待 **1 秒** 然后自动继续。
+    *   *用法:* 用于戏剧性的停顿、句子中间的打断，或在需要与用户阅读时间同步的新视觉/音频提示之前。
+*   `[C]`: **清除 (Clear)**。
+    *   清除对话框中当前可见的所有文本。
+    *   **自动模式:** 等待 **5 秒** 然后清除并继续（留出时间阅读整页）。
+    *   *用法:* 当文本框已满，或切换到全新的场景/话题时使用。被清除的文本会保存在历史记录中。
+
+## 8. 音效 (SFX)
+
+触发带有可选循环和时间限制的音效。
+
+**语法:** 
+*   **播放:** `[sound-SoundName-Duration]`
+    *   **SoundName:** `assets/sound_map.json` 中的中文描述名称（例如 `大雨1`, `脚步声`）。
+    *   **Duration:** 时间（毫秒）。
+        *   `0`: 播放一次（单次）。
+        *   `> 0`: 循环播放指定毫秒数。
+        *   *注意:* 任何活动的循环音效也会被 `[C]` (清除) 指令停止。
+*   **停止:** `[StopSound]`
+    *   立即停止所有当前播放的音效（包括循环和单次）。
+
+**示例:**
+*   `[sound-大雨1-0]` - 播放一次大雨声。
+*   `[sound-大雨4-5000]` - 循环雷雨声 5 秒。
+*   `[StopSound]` - 停止所有音效。
+
+---
+
+## 添加新表情的工作流
+
+1.  运行 `scan_characters.py` (可选，刷新文件列表)。
+2.  打开 `assets/character_map.json`。
+3.  找到你的角色（例如 `chiguo`）。
+4.  在 `expressions` 对象中，你会看到像 `010101` 这样的键（文件 ID）。
+5.  **重命名** 或 **复制** 这些键为有意义的名称。
+    *   *修改前:* `"010101": "assets/..."`
+    *   *修改后:*  `"happy": "assets/..."`
+6.  现在你可以使用 `[fg-chiguo-happy]`.

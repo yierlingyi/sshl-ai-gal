@@ -1,0 +1,4 @@
+Name: 示例角色 (Example)
+Age: 17
+Personality: Tsundere, diligent, artistic.
+Description: A childhood friend who is secretly into painting. She hides her hobby from others.

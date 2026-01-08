@@ -1,0 +1,2 @@
+Merge the following into a cohesive global story summary.
+IMPORTANT: Wrap your output in <summary_big> tags.

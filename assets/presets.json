@@ -1,0 +1,21 @@
+{
+    "zoom_half": {
+        "description": "Scale sprite to value",
+        "scale": 0.5
+    },
+    "pos_center": {
+        "description": "Move to Center",
+        "x": 440,
+        "y": 100
+    },
+    "pos_left": {
+        "description": "Move to Left",
+        "x": 100,
+        "y": 100
+    },
+    "pos_right": {
+        "description": "Move to Right",
+        "x": 800,
+        "y": 100
+    }
+}

@@ -1,0 +1,37 @@
+{
+  "music": [
+    {"name": "尘埃落定", "file": "尘埃落定.ogg", "description": "Piano, Sad, Melancholy"},
+    {"name": "橙色的小伞", "file": "橙色的小伞.ogg", "description": "Light, Daily, Relaxed"},
+    {"name": "脆弱的温柔", "file": "脆弱的温柔.ogg", "description": "Gentle, Emotional"},
+    {"name": "敌意", "file": "敌意.ogg", "description": "Tense, Danger"},
+    {"name": "独行", "file": "独行.ogg", "description": "Solitary, Quiet"},
+    {"name": "告白", "file": "告白.ogg", "description": "Romantic, Touching"},
+    {"name": "黑白绘卷", "file": "黑白绘卷.wav", "description": "Artistic, Flowing"},
+    {"name": "绘梦画卷(Ver.Game Size)", "file": "绘梦画卷(Ver.Game Size).ogg", "description": "Theme Song, Energetic"},
+    {"name": "加速世界", "file": "加速世界.ogg", "description": "Fast, Action"},
+    {"name": "静谧之夜", "file": "静谧之夜.ogg", "description": "Night, Calm"},
+    {"name": "纠葛", "file": "纠葛.ogg", "description": "Complex, Drama"},
+    {"name": "决心", "file": "决心.ogg", "description": "Determined, Strong"},
+    {"name": "绝望", "file": "绝望.ogg", "description": "Despair, Heavy"},
+    {"name": "恋染色(Ver.Game Size)", "file": "恋染色(Ver.Game Size).ogg", "description": "Theme Song, Pop"},
+    {"name": "乱麻", "file": "乱麻.ogg", "description": "Confused, Chaos"},
+    {"name": "木头脑袋", "file": "木头脑袋.ogg", "description": "Comical, Silly"},
+    {"name": "圣夜钟音", "file": "圣夜钟音.ogg", "description": "Christmas, Bell, Holy"},
+    {"name": "心底的颜色 Ver.Orange", "file": "心底的颜色 Ver.Orange.ogg", "description": "Emotional, Vocal Version"},
+    {"name": "心底的颜色 Ver.Violet", "file": "心底的颜色 Ver.Violet.ogg", "description": "Emotional, Vocal Version"},
+    {"name": "阳光下的公园", "file": "阳光下的公园.ogg", "description": "Bright, Happy, Day"},
+    {"name": "慵懒的阳光", "file": "慵懒的阳光.ogg", "description": "Lazy, Afternoon"},
+    {"name": "约定", "file": "约定.ogg", "description": "Promise, Hopeful"},
+    {"name": "珍贵的课间", "file": "珍贵的课间.ogg", "description": "School, Fun"},
+    {"name": "紫水晶之瞳", "file": "紫水晶之瞳.ogg", "description": "Mysterious, Beautiful"},
+    {"name": "罪与责", "file": "罪与责.ogg", "description": "Dark, Guilt"},
+    {"name": "bgm_XQ_Pia", "file": "bgm_XQ_Pia.ogg", "description": "Piano, Solo"},
+    {"name": "bgm21_full", "file": "bgm21_full.ogg", "description": "Full Track"},
+    {"name": "Excuse me!", "file": "Excuse me!.ogg", "description": "Funny, Interrupt"}
+  ],
+  "backgrounds": [
+    {"name": "school_gate", "file": "school_gate.png", "description": "School Gate, Day"},
+    {"name": "classroom", "file": "classroom.png", "description": "Classroom, Day"}
+  ],
+  "sprites": []
+}

@@ -1,0 +1,790 @@
+{
+    "天空_晴天_白天": {
+        "file": "assets/bg/bg01_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_雨天_白天": {
+        "file": "assets/bg/bg01_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_晴天_夜晚": {
+        "file": "assets/bg/bg01_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_晴天_深夜": {
+        "file": "assets/bg/bg01_n_l.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_雨天_夜晚": {
+        "file": "assets/bg/bg01_n_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_晴天_黄昏": {
+        "file": "assets/bg/bg01_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "天空_雨天_黄昏": {
+        "file": "assets/bg/bg01_pm_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "吸顶灯_白天": {
+        "file": "assets/bg/bg02_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "吸顶灯_关灯_夜晚": {
+        "file": "assets/bg/bg02_n_c.jpg",
+        "description": "Auto-scanned background"
+    },
+    "吸顶灯_开灯_夜晚": {
+        "file": "assets/bg/bg02_n_o.jpg",
+        "description": "Auto-scanned background"
+    },
+    "吸顶灯_下午": {
+        "file": "assets/bg/bg02_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_上午": {
+        "file": "assets/bg/bg03_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_上午_开电视": {
+        "file": "assets/bg/bg03_aml_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_上午_关窗帘": {
+        "file": "assets/bg/bg03_aml_w_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚": {
+        "file": "assets/bg/bg03_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_开电视": {
+        "file": "assets/bg/bg03_nl_c_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_开电视_关窗帘": {
+        "file": "assets/bg/bg03_nl_c_t_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_开灯": {
+        "file": "assets/bg/bg03_nl_o.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_开灯_下雨": {
+        "file": "assets/bg/bg03_nl_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_nl_r_b": {
+        "file": "assets/bg/bg03_nl_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_nl_r_ju": {
+        "file": "assets/bg/bg03_nl_r_ju.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_nl_tu": {
+        "file": "assets/bg/bg03_nl_tu.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_nl_tu_b": {
+        "file": "assets/bg/bg03_nl_tu_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_c_t": {
+        "file": "assets/bg/bg03_n_c_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_o": {
+        "file": "assets/bg/bg03_n_o.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_r": {
+        "file": "assets/bg/bg03_n_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_r_ju": {
+        "file": "assets/bg/bg03_n_r_ju.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_r_t": {
+        "file": "assets/bg/bg03_n_r_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_r_tu": {
+        "file": "assets/bg/bg03_n_r_tu.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg03_n_tu": {
+        "file": "assets/bg/bg03_n_tu.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_am": {
+        "file": "assets/bg/bg04_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_aml": {
+        "file": "assets/bg/bg04_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_aml_r_b": {
+        "file": "assets/bg/bg04_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_am_r": {
+        "file": "assets/bg/bg04_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_nl_ooo": {
+        "file": "assets/bg/bg04_nl_ooo.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_nl_ooo_b": {
+        "file": "assets/bg/bg04_nl_ooo_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_n_ooo": {
+        "file": "assets/bg/bg04_n_ooo.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_n_oool": {
+        "file": "assets/bg/bg04_n_oool.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_n_oool_b": {
+        "file": "assets/bg/bg04_n_oool_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_n_r_c": {
+        "file": "assets/bg/bg04_n_r_c.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_pm": {
+        "file": "assets/bg/bg04_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg04_pml": {
+        "file": "assets/bg/bg04_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_am": {
+        "file": "assets/bg/bg05_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_aml_b": {
+        "file": "assets/bg/bg05_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_n": {
+        "file": "assets/bg/bg05_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_nl": {
+        "file": "assets/bg/bg05_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_nl_b": {
+        "file": "assets/bg/bg05_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_pm": {
+        "file": "assets/bg/bg05_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_pml": {
+        "file": "assets/bg/bg05_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_pml_b": {
+        "file": "assets/bg/bg05_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_r": {
+        "file": "assets/bg/bg05_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg05_rl_b": {
+        "file": "assets/bg/bg05_rl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_am": {
+        "file": "assets/bg/bg06_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_aml": {
+        "file": "assets/bg/bg06_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_aml_b": {
+        "file": "assets/bg/bg06_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_n": {
+        "file": "assets/bg/bg06_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_nl": {
+        "file": "assets/bg/bg06_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_nl_b": {
+        "file": "assets/bg/bg06_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_nl_r": {
+        "file": "assets/bg/bg06_nl_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg06_n_r": {
+        "file": "assets/bg/bg06_n_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "BG06_pm": {
+        "file": "assets/bg/BG06_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "BG06_pml": {
+        "file": "assets/bg/BG06_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "BG06_pml_b": {
+        "file": "assets/bg/BG06_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_am": {
+        "file": "assets/bg/bg07_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_aml": {
+        "file": "assets/bg/bg07_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_aml_b": {
+        "file": "assets/bg/bg07_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_aml_cp_b": {
+        "file": "assets/bg/bg07_aml_cp_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_am_cp": {
+        "file": "assets/bg/bg07_am_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_n": {
+        "file": "assets/bg/bg07_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_nl_ccp": {
+        "file": "assets/bg/bg07_nl_ccp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_nl_cp": {
+        "file": "assets/bg/bg07_nl_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_nl_cp_b": {
+        "file": "assets/bg/bg07_nl_cp_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg07_n_cp": {
+        "file": "assets/bg/bg07_n_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_am": {
+        "file": "assets/bg/bg08_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_aml": {
+        "file": "assets/bg/bg08_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_aml_b": {
+        "file": "assets/bg/bg08_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_aml_c_b": {
+        "file": "assets/bg/bg08_aml_c_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_aml_r": {
+        "file": "assets/bg/bg08_aml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_aml_r_b": {
+        "file": "assets/bg/bg08_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_am_c": {
+        "file": "assets/bg/bg08_am_c.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_am_r": {
+        "file": "assets/bg/bg08_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_n": {
+        "file": "assets/bg/bg08_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_nl_b": {
+        "file": "assets/bg/bg08_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_pm": {
+        "file": "assets/bg/bg08_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg08_pml_b": {
+        "file": "assets/bg/bg08_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_am": {
+        "file": "assets/bg/bg09_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_aml_b": {
+        "file": "assets/bg/bg09_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_aml_r": {
+        "file": "assets/bg/bg09_aml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_aml_r_b": {
+        "file": "assets/bg/bg09_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_am_r": {
+        "file": "assets/bg/bg09_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_n": {
+        "file": "assets/bg/bg09_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_nl_b": {
+        "file": "assets/bg/bg09_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_pm": {
+        "file": "assets/bg/bg09_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_pml": {
+        "file": "assets/bg/bg09_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg09_pml_b": {
+        "file": "assets/bg/bg09_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_am": {
+        "file": "assets/bg/bg10_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_aml": {
+        "file": "assets/bg/bg10_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_aml_b": {
+        "file": "assets/bg/bg10_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_aml_ydh_p": {
+        "file": "assets/bg/bg10_aml_ydh_p.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_am_r": {
+        "file": "assets/bg/bg10_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_am_yd": {
+        "file": "assets/bg/bg10_am_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_pm": {
+        "file": "assets/bg/bg10_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_pml_b": {
+        "file": "assets/bg/bg10_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg10_pm_ydh": {
+        "file": "assets/bg/bg10_pm_ydh.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_am": {
+        "file": "assets/bg/bg11_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml": {
+        "file": "assets/bg/bg11_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml_b": {
+        "file": "assets/bg/bg11_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml_r": {
+        "file": "assets/bg/bg11_aml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml_r_b": {
+        "file": "assets/bg/bg11_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml_yd": {
+        "file": "assets/bg/bg11_aml_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_aml_yd_b": {
+        "file": "assets/bg/bg11_aml_yd_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_am_r": {
+        "file": "assets/bg/bg11_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_am_yd": {
+        "file": "assets/bg/bg11_am_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_pm": {
+        "file": "assets/bg/bg11_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_pml": {
+        "file": "assets/bg/bg11_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg11_pml_b": {
+        "file": "assets/bg/bg11_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_am": {
+        "file": "assets/bg/bg12_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_aml": {
+        "file": "assets/bg/bg12_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_aml_b": {
+        "file": "assets/bg/bg12_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_aml_r": {
+        "file": "assets/bg/bg12_aml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_aml_r_b": {
+        "file": "assets/bg/bg12_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_am_b": {
+        "file": "assets/bg/bg12_am_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_am_r": {
+        "file": "assets/bg/bg12_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_pm": {
+        "file": "assets/bg/bg12_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_pml": {
+        "file": "assets/bg/bg12_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_pml_b": {
+        "file": "assets/bg/bg12_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg12_pm_b": {
+        "file": "assets/bg/bg12_pm_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_am": {
+        "file": "assets/bg/bg13_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_aml": {
+        "file": "assets/bg/bg13_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_aml_b": {
+        "file": "assets/bg/bg13_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_pm": {
+        "file": "assets/bg/bg13_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_pml": {
+        "file": "assets/bg/bg13_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg13_pml_b": {
+        "file": "assets/bg/bg13_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_am": {
+        "file": "assets/bg/bg14_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_aml_b": {
+        "file": "assets/bg/bg14_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_aml_yd": {
+        "file": "assets/bg/bg14_aml_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_aml_yd_b": {
+        "file": "assets/bg/bg14_aml_yd_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_am_yd": {
+        "file": "assets/bg/bg14_am_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_am_ydh_p": {
+        "file": "assets/bg/bg14_am_ydh_p.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg14_pm_ydh": {
+        "file": "assets/bg/bg14_pm_ydh.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am": {
+        "file": "assets/bg/bg15_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_b": {
+        "file": "assets/bg/bg15_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_cp_b": {
+        "file": "assets/bg/bg15_aml_cp_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_cp_d_b": {
+        "file": "assets/bg/bg15_aml_cp_d_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_d_b": {
+        "file": "assets/bg/bg15_aml_d_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_d_w": {
+        "file": "assets/bg/bg15_aml_d_w.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_d_w_b": {
+        "file": "assets/bg/bg15_aml_d_w_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_aml_r_b": {
+        "file": "assets/bg/bg15_aml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_cp": {
+        "file": "assets/bg/bg15_am_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_cp_d": {
+        "file": "assets/bg/bg15_am_cp_d.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_d": {
+        "file": "assets/bg/bg15_am_d.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_d_w": {
+        "file": "assets/bg/bg15_am_d_w.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_r": {
+        "file": "assets/bg/bg15_am_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_am_w": {
+        "file": "assets/bg/bg15_am_w.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_pml_cp_b": {
+        "file": "assets/bg/bg15_pml_cp_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg15_pm_cp": {
+        "file": "assets/bg/bg15_pm_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_am": {
+        "file": "assets/bg/bg16_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_aml": {
+        "file": "assets/bg/bg16_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_aml_b": {
+        "file": "assets/bg/bg16_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_n": {
+        "file": "assets/bg/bg16_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_nl": {
+        "file": "assets/bg/bg16_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_nl_b": {
+        "file": "assets/bg/bg16_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pm": {
+        "file": "assets/bg/bg16_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pml": {
+        "file": "assets/bg/bg16_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pml_b": {
+        "file": "assets/bg/bg16_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pml_r": {
+        "file": "assets/bg/bg16_pml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pml_r_b": {
+        "file": "assets/bg/bg16_pml_r_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg16_pm_r": {
+        "file": "assets/bg/bg16_pm_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_am": {
+        "file": "assets/bg/bg17_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_aml": {
+        "file": "assets/bg/bg17_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_aml_b": {
+        "file": "assets/bg/bg17_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_n": {
+        "file": "assets/bg/bg17_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_nl": {
+        "file": "assets/bg/bg17_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_nl_b": {
+        "file": "assets/bg/bg17_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_pm": {
+        "file": "assets/bg/bg17_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg17_pml_b": {
+        "file": "assets/bg/bg17_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_am": {
+        "file": "assets/bg/bg18_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_aml": {
+        "file": "assets/bg/bg18_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_aml_b": {
+        "file": "assets/bg/bg18_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_n": {
+        "file": "assets/bg/bg18_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_nl": {
+        "file": "assets/bg/bg18_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg18_nl_b": {
+        "file": "assets/bg/bg18_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg19_am": {
+        "file": "assets/bg/bg19_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg19_aml": {
+        "file": "assets/bg/bg19_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg19_aml_b": {
+        "file": "assets/bg/bg19_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg20_am": {
+        "file": "assets/bg/bg20_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg20_aml_b": {
+        "file": "assets/bg/bg20_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg20_pm": {
+        "file": "assets/bg/bg20_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg20_pml_b": {
+        "file": "assets/bg/bg20_pml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_am": {
+        "file": "assets/bg/bg21_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_aml": {
+        "file": "assets/bg/bg21_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_aml_b": {
+        "file": "assets/bg/bg21_aml_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_n": {
+        "file": "assets/bg/bg21_n.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_nl": {
+        "file": "assets/bg/bg21_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_nl_b": {
+        "file": "assets/bg/bg21_nl_b.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_pm": {
+        "file": "assets/bg/bg21_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "bg21_pml_b": {
+        "file": "assets/bg/bg21_pml_b.jpg",
+        "description": "Auto-scanned background"
+    }
+}

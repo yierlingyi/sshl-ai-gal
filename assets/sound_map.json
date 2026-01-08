@@ -1,0 +1,1154 @@
+{
+    "大雨1": {
+        "file": "assets/sound/se001.ogg",
+        "description": "大雨1"
+    },
+    "大雨2": {
+        "file": "assets/sound/se002.ogg",
+        "description": "大雨2"
+    },
+    "大雨3": {
+        "file": "assets/sound/se003.ogg",
+        "description": "大雨3"
+    },
+    "大雨4+雷声": {
+        "file": "assets/sound/se004.ogg",
+        "description": "大雨4+雷声"
+    },
+    "雨1": {
+        "file": "assets/sound/se005.ogg",
+        "description": "雨1"
+    },
+    "雨2": {
+        "file": "assets/sound/se006.ogg",
+        "description": "雨2"
+    },
+    "雨3": {
+        "file": "assets/sound/se007.ogg",
+        "description": "雨3"
+    },
+    "雨4": {
+        "file": "assets/sound/se008-2.ogg",
+        "description": "雨4"
+    },
+    "雨4_2": {
+        "file": "assets/sound/se008.ogg",
+        "description": "雨4"
+    },
+    "安静的环境带鸟叫1": {
+        "file": "assets/sound/se009.ogg",
+        "description": "安静的环境带鸟叫1"
+    },
+    "安静的环境带鸟叫2": {
+        "file": "assets/sound/se010.ogg",
+        "description": "安静的环境带鸟叫2"
+    },
+    "环境音带蝉叫": {
+        "file": "assets/sound/se011.ogg",
+        "description": "环境音带蝉叫"
+    },
+    "环境音食堂": {
+        "file": "assets/sound/se012.ogg",
+        "description": "环境音食堂"
+    },
+    "环境音中山公园": {
+        "file": "assets/sound/se013.ogg",
+        "description": "环境音中山公园"
+    },
+    "教室内喧闹": {
+        "file": "assets/sound/se014.ogg",
+        "description": "教室内喧闹"
+    },
+    "室外喧闹": {
+        "file": "assets/sound/se015-1.ogg",
+        "description": "室外喧闹"
+    },
+    "室外喧闹_2": {
+        "file": "assets/sound/se015-2.ogg",
+        "description": "室外喧闹"
+    },
+    "室外喧闹_3": {
+        "file": "assets/sound/se015.ogg",
+        "description": "室外喧闹"
+    },
+    "街道环境带鸟叫": {
+        "file": "assets/sound/se016.ogg",
+        "description": "街道环境带鸟叫"
+    },
+    "进杂货店": {
+        "file": "assets/sound/se017-1.ogg",
+        "description": "进杂货店"
+    },
+    "进杂货店_2": {
+        "file": "assets/sound/se017.ogg",
+        "description": "进杂货店"
+    },
+    "旧电影": {
+        "file": "assets/sound/se018.ogg",
+        "description": "旧电影"
+    },
+    "脚步声-一步": {
+        "file": "assets/sound/se019.ogg",
+        "description": "脚步声-一步"
+    },
+    "走路声-男人": {
+        "file": "assets/sound/se020-1.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_2": {
+        "file": "assets/sound/se020-2.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_3": {
+        "file": "assets/sound/se020-3.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_4": {
+        "file": "assets/sound/se020-4.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_5": {
+        "file": "assets/sound/se020-5.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_6": {
+        "file": "assets/sound/se020-6.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人_7": {
+        "file": "assets/sound/se020.ogg",
+        "description": "走路声-男人"
+    },
+    "走路声-男人（室内）": {
+        "file": "assets/sound/se021-1.ogg",
+        "description": "走路声-男人（室内）"
+    },
+    "走路声-男人（室内）_2": {
+        "file": "assets/sound/se021-2.ogg",
+        "description": "走路声-男人（室内）"
+    },
+    "走路声-男人（室内）_3": {
+        "file": "assets/sound/se021-3.ogg",
+        "description": "走路声-男人（室内）"
+    },
+    "走路声-男人（室内）_4": {
+        "file": "assets/sound/se021-4.ogg",
+        "description": "走路声-男人（室内）"
+    },
+    "走路声-男人（室内）_5": {
+        "file": "assets/sound/se021.ogg",
+        "description": "走路声-男人（室内）"
+    },
+    "快步-男人": {
+        "file": "assets/sound/se022-1.ogg",
+        "description": "快步-男人"
+    },
+    "快步-男人_2": {
+        "file": "assets/sound/se022.ogg",
+        "description": "快步-男人"
+    },
+    "走路声-女人": {
+        "file": "assets/sound/se023-1.ogg",
+        "description": "走路声-女人"
+    },
+    "走路声-女人_2": {
+        "file": "assets/sound/se023.ogg",
+        "description": "走路声-女人"
+    },
+    "脚步声-室内": {
+        "file": "assets/sound/se024.ogg",
+        "description": "脚步声-室内"
+    },
+    "脚步声-室内_2": {
+        "file": "assets/sound/se024_01.ogg",
+        "description": "脚步声-室内"
+    },
+    "跑步声-像女生的（25-2 多人跑步）": {
+        "file": "assets/sound/se025-1.ogg",
+        "description": "跑步声-像女生的（25-2 多人跑步）"
+    },
+    "跑步声-像女生的（25-2 多人跑步）_2": {
+        "file": "assets/sound/se025-2.ogg",
+        "description": "跑步声-像女生的（25-2 多人跑步）"
+    },
+    "跑步声-像女生的（25-2 多人跑步）_3": {
+        "file": "assets/sound/se025-3.ogg",
+        "description": "跑步声-像女生的（25-2 多人跑步）"
+    },
+    "跑步声-像女生的（25-2 多人跑步）_4": {
+        "file": "assets/sound/se025-4.ogg",
+        "description": "跑步声-像女生的（25-2 多人跑步）"
+    },
+    "跑步声-像女生的（25-2 多人跑步）_5": {
+        "file": "assets/sound/se025.ogg",
+        "description": "跑步声-像女生的（25-2 多人跑步）"
+    },
+    "快速跑近": {
+        "file": "assets/sound/se026-1.ogg",
+        "description": "快速跑近"
+    },
+    "快速跑近_2": {
+        "file": "assets/sound/se026.ogg",
+        "description": "快速跑近"
+    },
+    "快速跑远": {
+        "file": "assets/sound/se027-1.ogg",
+        "description": "快速跑远"
+    },
+    "快速跑远_2": {
+        "file": "assets/sound/se027-2.ogg",
+        "description": "快速跑远"
+    },
+    "快速跑远_3": {
+        "file": "assets/sound/se027-3.ogg",
+        "description": "快速跑远"
+    },
+    "快速跑远_4": {
+        "file": "assets/sound/se027-4.ogg",
+        "description": "快速跑远"
+    },
+    "快速跑远_5": {
+        "file": "assets/sound/se027-5.ogg",
+        "description": "快速跑远"
+    },
+    "快速跑远_6": {
+        "file": "assets/sound/se027.ogg",
+        "description": "快速跑远"
+    },
+    "快速走进": {
+        "file": "assets/sound/se028-1.ogg",
+        "description": "快速走进"
+    },
+    "快速走进_2": {
+        "file": "assets/sound/se028.ogg",
+        "description": "快速走进"
+    },
+    "快速走远": {
+        "file": "assets/sound/se029.ogg",
+        "description": "快速走远"
+    },
+    "闹钟": {
+        "file": "assets/sound/se030.ogg",
+        "description": "闹钟"
+    },
+    "关闹钟": {
+        "file": "assets/sound/se031.ogg",
+        "description": "关闹钟"
+    },
+    "关灯": {
+        "file": "assets/sound/se032.ogg",
+        "description": "关灯"
+    },
+    "按门铃": {
+        "file": "assets/sound/se033-1.ogg",
+        "description": "按门铃"
+    },
+    "按门铃_2": {
+        "file": "assets/sound/se033.ogg",
+        "description": "按门铃"
+    },
+    "打开大门": {
+        "file": "assets/sound/se034.ogg",
+        "description": "打开大门"
+    },
+    "关大门（防盗门）": {
+        "file": "assets/sound/se035.ogg",
+        "description": "关大门（防盗门）"
+    },
+    "开门": {
+        "file": "assets/sound/se036-1.ogg",
+        "description": "开门"
+    },
+    "开门_2": {
+        "file": "assets/sound/se036.ogg",
+        "description": "开门"
+    },
+    "关门": {
+        "file": "assets/sound/se037.ogg",
+        "description": "关门"
+    },
+    "打开冰柜": {
+        "file": "assets/sound/se038.ogg",
+        "description": "打开冰柜"
+    },
+    "关闭冰柜": {
+        "file": "assets/sound/se039.ogg",
+        "description": "关闭冰柜"
+    },
+    "收拾东西": {
+        "file": "assets/sound/se040-1.ogg",
+        "description": "收拾东西"
+    },
+    "收拾东西_2": {
+        "file": "assets/sound/se040.ogg",
+        "description": "收拾东西"
+    },
+    "衣服掉落地上": {
+        "file": "assets/sound/se041-1.ogg",
+        "description": "衣服掉落地上"
+    },
+    "衣服掉落地上_2": {
+        "file": "assets/sound/se041.ogg",
+        "description": "衣服掉落地上"
+    },
+    "拉衣服声（拉拉链）": {
+        "file": "assets/sound/se042.ogg",
+        "description": "拉衣服声（拉拉链）"
+    },
+    "起床1（有点像穿衣服）": {
+        "file": "assets/sound/se043.ogg",
+        "description": "起床1（有点像穿衣服）"
+    },
+    "起床2": {
+        "file": "assets/sound/se044.ogg",
+        "description": "起床2"
+    },
+    "冲水声厨房": {
+        "file": "assets/sound/se045-1.ogg",
+        "description": "冲水声厨房"
+    },
+    "冲水声厨房_2": {
+        "file": "assets/sound/se045-2.ogg",
+        "description": "冲水声厨房"
+    },
+    "冲水声厨房_3": {
+        "file": "assets/sound/se045.ogg",
+        "description": "冲水声厨房"
+    },
+    "倒水声": {
+        "file": "assets/sound/se046.ogg",
+        "description": "倒水声"
+    },
+    "碗声": {
+        "file": "assets/sound/se047-1.ogg",
+        "description": "碗声"
+    },
+    "碗声_2": {
+        "file": "assets/sound/se047-2.ogg",
+        "description": "碗声"
+    },
+    "碗声_3": {
+        "file": "assets/sound/se047.ogg",
+        "description": "碗声"
+    },
+    "吃饭时的碗筷声": {
+        "file": "assets/sound/se048-1.ogg",
+        "description": "吃饭时的碗筷声"
+    },
+    "吃饭时的碗筷声_2": {
+        "file": "assets/sound/se048-2.ogg",
+        "description": "吃饭时的碗筷声"
+    },
+    "吃饭时的碗筷声_3": {
+        "file": "assets/sound/se048.ogg",
+        "description": "吃饭时的碗筷声"
+    },
+    "胡乱的搅拌": {
+        "file": "assets/sound/se049.ogg",
+        "description": "胡乱的搅拌"
+    },
+    "桄榔掉地上": {
+        "file": "assets/sound/se050-1.ogg",
+        "description": "桄榔掉地上"
+    },
+    "桄榔掉地上_2": {
+        "file": "assets/sound/se050-2.ogg",
+        "description": "桄榔掉地上"
+    },
+    "桄榔掉地上_3": {
+        "file": "assets/sound/se050-3.ogg",
+        "description": "桄榔掉地上"
+    },
+    "桄榔掉地上_4": {
+        "file": "assets/sound/se050-4.ogg",
+        "description": "桄榔掉地上"
+    },
+    "桄榔掉地上_5": {
+        "file": "assets/sound/se050-5.ogg",
+        "description": "桄榔掉地上"
+    },
+    "桄榔掉地上_6": {
+        "file": "assets/sound/se050.ogg",
+        "description": "桄榔掉地上"
+    },
+    "闷声撞柜子": {
+        "file": "assets/sound/se051-1.ogg",
+        "description": "闷声撞柜子"
+    },
+    "闷声撞柜子_2": {
+        "file": "assets/sound/se051-2.ogg",
+        "description": "闷声撞柜子"
+    },
+    "闷声撞柜子_3": {
+        "file": "assets/sound/se051.ogg",
+        "description": "闷声撞柜子"
+    },
+    "画画声1": {
+        "file": "assets/sound/se052.ogg",
+        "description": "画画声1"
+    },
+    "画画声2": {
+        "file": "assets/sound/se053.ogg",
+        "description": "画画声2"
+    },
+    "画画声3": {
+        "file": "assets/sound/se054.ogg",
+        "description": "画画声3"
+    },
+    "拉开椅子1": {
+        "file": "assets/sound/se055-1.ogg",
+        "description": "拉开椅子1"
+    },
+    "拉开椅子1_2": {
+        "file": "assets/sound/se055.ogg",
+        "description": "拉开椅子1"
+    },
+    "拉开椅子2": {
+        "file": "assets/sound/se056.ogg",
+        "description": "拉开椅子2"
+    },
+    "写字声": {
+        "file": "assets/sound/se057.ogg",
+        "description": "写字声"
+    },
+    "切菜声": {
+        "file": "assets/sound/se058.ogg",
+        "description": "切菜声"
+    },
+    "被扇巴掌（拍脸：59-2）": {
+        "file": "assets/sound/se059-1.ogg",
+        "description": "被扇巴掌（拍脸：59-2）"
+    },
+    "被扇巴掌（拍脸：59-2）_2": {
+        "file": "assets/sound/se059-2.ogg",
+        "description": "被扇巴掌（拍脸：59-2）"
+    },
+    "被扇巴掌（拍脸：59-2）_3": {
+        "file": "assets/sound/se059.ogg",
+        "description": "被扇巴掌（拍脸：59-2）"
+    },
+    "翻书声": {
+        "file": "assets/sound/se060-1.ogg",
+        "description": "翻书声"
+    },
+    "翻书声_2": {
+        "file": "assets/sound/se060.ogg",
+        "description": "翻书声"
+    },
+    "翻页声": {
+        "file": "assets/sound/se061-1.ogg",
+        "description": "翻页声"
+    },
+    "翻页声_2": {
+        "file": "assets/sound/se061-2.ogg",
+        "description": "翻页声"
+    },
+    "翻页声_3": {
+        "file": "assets/sound/se061.ogg",
+        "description": "翻页声"
+    },
+    "撕纸张": {
+        "file": "assets/sound/se062-1.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_2": {
+        "file": "assets/sound/se062-2.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_3": {
+        "file": "assets/sound/se062-3.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_4": {
+        "file": "assets/sound/se062-4.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_5": {
+        "file": "assets/sound/se062-5.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_6": {
+        "file": "assets/sound/se062-6.ogg",
+        "description": "撕纸张"
+    },
+    "撕纸张_7": {
+        "file": "assets/sound/se062.ogg",
+        "description": "撕纸张"
+    },
+    "单击鼠标": {
+        "file": "assets/sound/se063.ogg",
+        "description": "单击鼠标"
+    },
+    "打字（完整）": {
+        "file": "assets/sound/se064-1.ogg",
+        "description": "打字（完整）"
+    },
+    "打字（完整）_2": {
+        "file": "assets/sound/se064-2.ogg",
+        "description": "打字（完整）"
+    },
+    "打字（完整）_3": {
+        "file": "assets/sound/se064.ogg",
+        "description": "打字（完整）"
+    },
+    "电话待接": {
+        "file": "assets/sound/se065.ogg",
+        "description": "电话待接"
+    },
+    "手机震动（单次）": {
+        "file": "assets/sound/se066.ogg",
+        "description": "手机震动（单次）"
+    },
+    "上课铃": {
+        "file": "assets/sound/se067-1.ogg",
+        "description": "上课铃"
+    },
+    "上课铃_2": {
+        "file": "assets/sound/se067.ogg",
+        "description": "上课铃"
+    },
+    "饿肚子": {
+        "file": "assets/sound/se068.ogg",
+        "description": "饿肚子"
+    },
+    "鼓掌声": {
+        "file": "assets/sound/se069.ogg",
+        "description": "鼓掌声"
+    },
+    "汽车开走\t（开过水坑70-1）": {
+        "file": "assets/sound/se070-1.ogg",
+        "description": "汽车开走\t（开过水坑70-1）"
+    },
+    "汽车开走\t（开过水坑70-1）_2": {
+        "file": "assets/sound/se070-2.ogg",
+        "description": "汽车开走\t（开过水坑70-1）"
+    },
+    "汽车开走\t（开过水坑70-1）_3": {
+        "file": "assets/sound/se070.ogg",
+        "description": "汽车开走\t（开过水坑70-1）"
+    },
+    "汽车启动": {
+        "file": "assets/sound/se071.ogg",
+        "description": "汽车启动"
+    },
+    "扫地单声": {
+        "file": "assets/sound/se072.ogg",
+        "description": "扫地单声"
+    },
+    "扫地长": {
+        "file": "assets/sound/se073.ogg",
+        "description": "扫地长"
+    },
+    "打人一声": {
+        "file": "assets/sound/se074.ogg",
+        "description": "打人一声"
+    },
+    "打人声组合": {
+        "file": "assets/sound/se075-1.ogg",
+        "description": "打人声组合"
+    },
+    "打人声组合_2": {
+        "file": "assets/sound/se075.ogg",
+        "description": "打人声组合"
+    },
+    "吞咽": {
+        "file": "assets/sound/se076.ogg",
+        "description": "吞咽"
+    },
+    "电话拨号": {
+        "file": "assets/sound/se077.ogg",
+        "description": "电话拨号"
+    },
+    "电话忙音": {
+        "file": "assets/sound/se078.ogg",
+        "description": "电话忙音"
+    },
+    "打开瓶盖": {
+        "file": "assets/sound/se079-1.ogg",
+        "description": "打开瓶盖"
+    },
+    "打开瓶盖_2": {
+        "file": "assets/sound/se079-2.ogg",
+        "description": "打开瓶盖"
+    },
+    "打开瓶盖_3": {
+        "file": "assets/sound/se079.ogg",
+        "description": "打开瓶盖"
+    },
+    "关闭瓶盖": {
+        "file": "assets/sound/se080.ogg",
+        "description": "关闭瓶盖"
+    },
+    "跳到地上": {
+        "file": "assets/sound/se081-1.ogg",
+        "description": "跳到地上"
+    },
+    "跳到地上_2": {
+        "file": "assets/sound/se081.ogg",
+        "description": "跳到地上"
+    },
+    "开门（学生会）": {
+        "file": "assets/sound/se082.ogg",
+        "description": "开门（学生会）"
+    },
+    "关门（学生会）": {
+        "file": "assets/sound/se083.ogg",
+        "description": "关门（学生会）"
+    },
+    "下课铃": {
+        "file": "assets/sound/se084.ogg",
+        "description": "下课铃"
+    },
+    "错误": {
+        "file": "assets/sound/se085.ogg",
+        "description": "错误"
+    },
+    "落水": {
+        "file": "assets/sound/se086.ogg",
+        "description": "落水"
+    },
+    "撞倒椅子": {
+        "file": "assets/sound/se087.ogg",
+        "description": "撞倒椅子"
+    },
+    "关闭炉子": {
+        "file": "assets/sound/se088.ogg",
+        "description": "关闭炉子"
+    },
+    "敲锅": {
+        "file": "assets/sound/se089.ogg",
+        "description": "敲锅"
+    },
+    "对不起，您所拨打的用户...": {
+        "file": "assets/sound/se090.ogg",
+        "description": "对不起，您所拨打的用户..."
+    },
+    "烧火": {
+        "file": "assets/sound/se091.ogg",
+        "description": "烧火"
+    },
+    "汽车鸣笛": {
+        "file": "assets/sound/se092.ogg",
+        "description": "汽车鸣笛"
+    },
+    "电话里敲门": {
+        "file": "assets/sound/se093.ogg",
+        "description": "电话里敲门"
+    },
+    "躺下": {
+        "file": "assets/sound/se094.ogg",
+        "description": "躺下"
+    },
+    "饼干碎（咔擦：95-1）": {
+        "file": "assets/sound/se095-1.ogg",
+        "description": "饼干碎（咔擦：95-1）"
+    },
+    "饼干碎（咔擦：95-1）_2": {
+        "file": "assets/sound/se095.ogg",
+        "description": "饼干碎（咔擦：95-1）"
+    },
+    "碰杯": {
+        "file": "assets/sound/se096.ogg",
+        "description": "碰杯"
+    },
+    "纸袋": {
+        "file": "assets/sound/se097-1.ogg",
+        "description": "纸袋"
+    },
+    "纸袋_2": {
+        "file": "assets/sound/se097-2.ogg",
+        "description": "纸袋"
+    },
+    "纸袋_3": {
+        "file": "assets/sound/se097.ogg",
+        "description": "纸袋"
+    },
+    "撕包装": {
+        "file": "assets/sound/se098.ogg",
+        "description": "撕包装"
+    },
+    "嗖——": {
+        "file": "assets/sound/se099.ogg",
+        "description": "嗖——"
+    },
+    "搁置-石膏像": {
+        "file": "assets/sound/se100.ogg",
+        "description": "搁置-石膏像"
+    },
+    "搁置画架": {
+        "file": "assets/sound/se101.ogg",
+        "description": "搁置画架"
+    },
+    "捏——": {
+        "file": "assets/sound/se102-1.ogg",
+        "description": "捏——"
+    },
+    "捏——_2": {
+        "file": "assets/sound/se102.ogg",
+        "description": "捏——"
+    },
+    "惊悚（鬼屋）103-1,103-2": {
+        "file": "assets/sound/se103-1.ogg",
+        "description": "惊悚（鬼屋）103-1,103-2"
+    },
+    "惊悚（鬼屋）103-1,103-2_2": {
+        "file": "assets/sound/se103-2.ogg",
+        "description": "惊悚（鬼屋）103-1,103-2"
+    },
+    "惊悚（鬼屋）103-1,103-2_3": {
+        "file": "assets/sound/se103.ogg",
+        "description": "惊悚（鬼屋）103-1,103-2"
+    },
+    "嘀-电器（尖叫104-1）": {
+        "file": "assets/sound/se104-1.ogg",
+        "description": "嘀-电器（尖叫104-1）"
+    },
+    "嘀-电器（尖叫104-1）_2": {
+        "file": "assets/sound/se104.ogg",
+        "description": "嘀-电器（尖叫104-1）"
+    },
+    "打开电饭煲": {
+        "file": "assets/sound/se105.ogg",
+        "description": "打开电饭煲"
+    },
+    "关闭电饭煲": {
+        "file": "assets/sound/se106.ogg",
+        "description": "关闭电饭煲"
+    },
+    "电话铃（家）": {
+        "file": "assets/sound/se107.ogg",
+        "description": "电话铃（家）"
+    },
+    "放下杯子": {
+        "file": "assets/sound/se108.ogg",
+        "description": "放下杯子"
+    },
+    "哄笑": {
+        "file": "assets/sound/se109-1.ogg",
+        "description": "哄笑"
+    },
+    "哄笑_2": {
+        "file": "assets/sound/se109.ogg",
+        "description": "哄笑"
+    },
+    "拍两下手": {
+        "file": "assets/sound/se110.ogg",
+        "description": "拍两下手"
+    },
+    "冷风": {
+        "file": "assets/sound/se111.ogg",
+        "description": "冷风"
+    },
+    "拿钥匙": {
+        "file": "assets/sound/se112.ogg",
+        "description": "拿钥匙"
+    },
+    "烧菜声": {
+        "file": "assets/sound/se113.ogg",
+        "description": "烧菜声"
+    },
+    "接通电话": {
+        "file": "assets/sound/se114.ogg",
+        "description": "接通电话"
+    },
+    "哨子（体育老师）": {
+        "file": "assets/sound/se115.ogg",
+        "description": "哨子（体育老师）"
+    },
+    "手机按键声（长按：116-1）": {
+        "file": "assets/sound/se116-1.ogg",
+        "description": "手机按键声（长按：116-1）"
+    },
+    "手机按键声（长按：116-1）_2": {
+        "file": "assets/sound/se116-2.ogg",
+        "description": "手机按键声（长按：116-1）"
+    },
+    "手机按键声（长按：116-1）_3": {
+        "file": "assets/sound/se116.ogg",
+        "description": "手机按键声（长按：116-1）"
+    },
+    "手机挂断声": {
+        "file": "assets/sound/se117.ogg",
+        "description": "手机挂断声"
+    },
+    "塑料袋": {
+        "file": "assets/sound/se118-1.ogg",
+        "description": "塑料袋"
+    },
+    "塑料袋_2": {
+        "file": "assets/sound/se118-2.ogg",
+        "description": "塑料袋"
+    },
+    "塑料袋_3": {
+        "file": "assets/sound/se118-3.ogg",
+        "description": "塑料袋"
+    },
+    "塑料袋_4": {
+        "file": "assets/sound/se118.ogg",
+        "description": "塑料袋"
+    },
+    "踏进水坑": {
+        "file": "assets/sound/se119.ogg",
+        "description": "踏进水坑"
+    },
+    "摇下车窗": {
+        "file": "assets/sound/se120.ogg",
+        "description": "摇下车窗"
+    },
+    "刹车": {
+        "file": "assets/sound/se121.ogg",
+        "description": "刹车"
+    },
+    "漂移": {
+        "file": "assets/sound/se122.ogg",
+        "description": "漂移"
+    },
+    "电视机开关": {
+        "file": "assets/sound/se123.ogg",
+        "description": "电视机开关"
+    },
+    "翻盖手机-关闭": {
+        "file": "assets/sound/se124.ogg",
+        "description": "翻盖手机-关闭"
+    },
+    "塑料品滚动": {
+        "file": "assets/sound/se125.ogg",
+        "description": "塑料品滚动"
+    },
+    "欢呼（运动会）": {
+        "file": "assets/sound/se126-1.ogg",
+        "description": "欢呼（运动会）"
+    },
+    "欢呼（运动会）_2": {
+        "file": "assets/sound/se126-2.ogg",
+        "description": "欢呼（运动会）"
+    },
+    "欢呼（运动会）_3": {
+        "file": "assets/sound/se126-3.ogg",
+        "description": "欢呼（运动会）"
+    },
+    "欢呼（运动会）_4": {
+        "file": "assets/sound/se126-4.ogg",
+        "description": "欢呼（运动会）"
+    },
+    "欢呼（运动会）_5": {
+        "file": "assets/sound/se126.ogg",
+        "description": "欢呼（运动会）"
+    },
+    "枪声（运动会）": {
+        "file": "assets/sound/se127.ogg",
+        "description": "枪声（运动会）"
+    },
+    "接电话（128-1挂电话）": {
+        "file": "assets/sound/se128-1.ogg",
+        "description": "接电话（128-1挂电话）"
+    },
+    "接电话（128-1挂电话）_2": {
+        "file": "assets/sound/se128.ogg",
+        "description": "接电话（128-1挂电话）"
+    },
+    "放下书本": {
+        "file": "assets/sound/se129.ogg",
+        "description": "放下书本"
+    },
+    "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）": {
+        "file": "assets/sound/se130-1.ogg",
+        "description": "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）"
+    },
+    "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）_2": {
+        "file": "assets/sound/se130-2.ogg",
+        "description": "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）"
+    },
+    "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）_3": {
+        "file": "assets/sound/se130.ogg",
+        "description": "墨小菊手机铃声（迟菓的130-1，邱诚的130-2）"
+    },
+    "扔到垃圾桶中": {
+        "file": "assets/sound/se131.ogg",
+        "description": "扔到垃圾桶中"
+    },
+    "爆破崩塌（游戏）": {
+        "file": "assets/sound/se132.ogg",
+        "description": "爆破崩塌（游戏）"
+    },
+    "花洒（开：133-1，关：133-2）": {
+        "file": "assets/sound/se133-1.ogg",
+        "description": "花洒（开：133-1，关：133-2）"
+    },
+    "花洒（开：133-1，关：133-2）_2": {
+        "file": "assets/sound/se133-2.ogg",
+        "description": "花洒（开：133-1，关：133-2）"
+    },
+    "花洒（开：133-1，关：133-2）_3": {
+        "file": "assets/sound/se133.ogg",
+        "description": "花洒（开：133-1，关：133-2）"
+    },
+    "舀米（沙子音）": {
+        "file": "assets/sound/se134.ogg",
+        "description": "舀米（沙子音）"
+    },
+    "零钱（硬币）": {
+        "file": "assets/sound/se135.ogg",
+        "description": "零钱（硬币）"
+    },
+    "列车loop（开门136-1，关门136-2，到站136-3）": {
+        "file": "assets/sound/se136-1.ogg",
+        "description": "列车loop（开门136-1，关门136-2，到站136-3）"
+    },
+    "列车loop（开门136-1，关门136-2，到站136-3）_2": {
+        "file": "assets/sound/se136-2.ogg",
+        "description": "列车loop（开门136-1，关门136-2，到站136-3）"
+    },
+    "列车loop（开门136-1，关门136-2，到站136-3）_3": {
+        "file": "assets/sound/se136-3.ogg",
+        "description": "列车loop（开门136-1，关门136-2，到站136-3）"
+    },
+    "列车loop（开门136-1，关门136-2，到站136-3）_4": {
+        "file": "assets/sound/se136.ogg",
+        "description": "列车loop（开门136-1，关门136-2，到站136-3）"
+    },
+    "心脏跳动（一下）": {
+        "file": "assets/sound/se137.ogg",
+        "description": "心脏跳动（一下）"
+    },
+    "烟花礼花（）": {
+        "file": "assets/sound/se138-1.ogg",
+        "description": "烟花礼花（）"
+    },
+    "烟花礼花（）_2": {
+        "file": "assets/sound/se138.ogg",
+        "description": "烟花礼花（）"
+    },
+    "喷泉（）": {
+        "file": "assets/sound/se139.ogg",
+        "description": "喷泉（）"
+    },
+    "耳鸣": {
+        "file": "assets/sound/se140.ogg",
+        "description": "耳鸣"
+    },
+    "碰碰车撞击": {
+        "file": "assets/sound/se141-1.ogg",
+        "description": "碰碰车撞击"
+    },
+    "碰碰车撞击_2": {
+        "file": "assets/sound/se141-2.ogg",
+        "description": "碰碰车撞击"
+    },
+    "碰碰车撞击_3": {
+        "file": "assets/sound/se141-3.ogg",
+        "description": "碰碰车撞击"
+    },
+    "碰碰车撞击_4": {
+        "file": "assets/sound/se141.ogg",
+        "description": "碰碰车撞击"
+    },
+    "跳水": {
+        "file": "assets/sound/se142.ogg",
+        "description": "跳水"
+    },
+    "水中行走": {
+        "file": "assets/sound/se143.ogg",
+        "description": "水中行走"
+    },
+    "拉窗帘": {
+        "file": "assets/sound/se144.ogg",
+        "description": "拉窗帘"
+    },
+    "推椅子": {
+        "file": "assets/sound/se145.ogg",
+        "description": "推椅子"
+    },
+    "吱吖声": {
+        "file": "assets/sound/se146-1.ogg",
+        "description": "吱吖声"
+    },
+    "吱吖声_2": {
+        "file": "assets/sound/se146.ogg",
+        "description": "吱吖声"
+    },
+    "笔掉落": {
+        "file": "assets/sound/se147.ogg",
+        "description": "笔掉落"
+    },
+    "摔倒": {
+        "file": "assets/sound/se148.ogg",
+        "description": "摔倒"
+    },
+    "喘息": {
+        "file": "assets/sound/se149.ogg",
+        "description": "喘息"
+    },
+    "自行车铃": {
+        "file": "assets/sound/se150.ogg",
+        "description": "自行车铃"
+    },
+    "灯开关（两次）": {
+        "file": "assets/sound/se151.ogg",
+        "description": "灯开关（两次）"
+    },
+    "筷子": {
+        "file": "assets/sound/se152.ogg",
+        "description": "筷子"
+    },
+    "轻打击": {
+        "file": "assets/sound/se153.ogg",
+        "description": "轻打击"
+    },
+    "风呼啸": {
+        "file": "assets/sound/se154.ogg",
+        "description": "风呼啸"
+    },
+    "敲门（两声）": {
+        "file": "assets/sound/se155.ogg",
+        "description": "敲门（两声）"
+    },
+    "打火机": {
+        "file": "assets/sound/se156.ogg",
+        "description": "打火机"
+    },
+    "跑车发动（保时捷）": {
+        "file": "assets/sound/se157-1.ogg",
+        "description": "跑车发动（保时捷）"
+    },
+    "跑车发动（保时捷）_2": {
+        "file": "assets/sound/se157.ogg",
+        "description": "跑车发动（保时捷）"
+    },
+    "开窗户（158-1正在开窗户）": {
+        "file": "assets/sound/se158-1.ogg",
+        "description": "开窗户（158-1正在开窗户）"
+    },
+    "开窗户（158-1正在开窗户）_2": {
+        "file": "assets/sound/se158.ogg",
+        "description": "开窗户（158-1正在开窗户）"
+    },
+    "翻窗户": {
+        "file": "assets/sound/se159.ogg",
+        "description": "翻窗户"
+    },
+    "放碗（有菜）": {
+        "file": "assets/sound/se160.ogg",
+        "description": "放碗（有菜）"
+    },
+    "黑板写字": {
+        "file": "assets/sound/se161.ogg",
+        "description": "黑板写字"
+    },
+    "踢车（4次）": {
+        "file": "assets/sound/se162.ogg",
+        "description": "踢车（4次）"
+    },
+    "汽车警报": {
+        "file": "assets/sound/se163.ogg",
+        "description": "汽车警报"
+    },
+    "挥刀声": {
+        "file": "assets/sound/se164.ogg",
+        "description": "挥刀声"
+    },
+    "开关车门": {
+        "file": "assets/sound/se165-1.ogg",
+        "description": "开关车门"
+    },
+    "开关车门_2": {
+        "file": "assets/sound/se165-2.ogg",
+        "description": "开关车门"
+    },
+    "开关车门_3": {
+        "file": "assets/sound/se165.ogg",
+        "description": "开关车门"
+    },
+    "摩托车（开走）": {
+        "file": "assets/sound/se166-1.ogg",
+        "description": "摩托车（开走）"
+    },
+    "摩托车（开走）_2": {
+        "file": "assets/sound/se166.ogg",
+        "description": "摩托车（开走）"
+    },
+    "捶桌子": {
+        "file": "assets/sound/se167.ogg",
+        "description": "捶桌子"
+    },
+    "打人一拳": {
+        "file": "assets/sound/se168.ogg",
+        "description": "打人一拳"
+    },
+    "桌球": {
+        "file": "assets/sound/se169.ogg",
+        "description": "桌球"
+    },
+    "踢桌子": {
+        "file": "assets/sound/se170.ogg",
+        "description": "踢桌子"
+    },
+    "揉纸团": {
+        "file": "assets/sound/se171.ogg",
+        "description": "揉纸团"
+    },
+    "撕纸": {
+        "file": "assets/sound/se172.ogg",
+        "description": "撕纸"
+    },
+    "斩杀": {
+        "file": "assets/sound/se173.ogg",
+        "description": "斩杀"
+    },
+    "溜了": {
+        "file": "assets/sound/se174.ogg",
+        "description": "溜了"
+    },
+    "打人带血": {
+        "file": "assets/sound/se175.ogg",
+        "description": "打人带血"
+    },
+    "溜了溜了": {
+        "file": "assets/sound/se176.ogg",
+        "description": "溜了溜了"
+    },
+    "敲头（滑稽）": {
+        "file": "assets/sound/se177.ogg",
+        "description": "敲头（滑稽）"
+    },
+    "吸管（喝饮料）": {
+        "file": "assets/sound/se178.ogg",
+        "description": "吸管（喝饮料）"
+    },
+    "接塑料瓶": {
+        "file": "assets/sound/se179.ogg",
+        "description": "接塑料瓶"
+    },
+    "气球漏气": {
+        "file": "assets/sound/se180.ogg",
+        "description": "气球漏气"
+    },
+    "相机快门": {
+        "file": "assets/sound/se181.ogg",
+        "description": "相机快门"
+    },
+    "（特殊）nt-夏亚梗": {
+        "file": "assets/sound/se182.ogg",
+        "description": "（特殊）nt-夏亚梗"
+    },
+    "123": {
+        "file": "assets/sound/se183.ogg",
+        "description": "123"
+    },
+    "骨折": {
+        "file": "assets/sound/se184.ogg",
+        "description": "骨折"
+    },
+    "推车声": {
+        "file": "assets/sound/se185.ogg",
+        "description": "推车声"
+    },
+    "玻璃开瓶盖（蹦的声音）": {
+        "file": "assets/sound/se186.ogg",
+        "description": "玻璃开瓶盖（蹦的声音）"
+    },
+    "挥刀": {
+        "file": "assets/sound/se187.ogg",
+        "description": "挥刀"
+    }
+}
