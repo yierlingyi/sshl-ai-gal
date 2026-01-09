@@ -99,7 +99,7 @@ class GameEngine(QObject):
             return
             
         self.state = GameState.GENERATING
-        self.text_updated.emit("Thinking...", "")
+        self.text_updated.emit("思考中...", "")
         
         try:
             # Execute backend turn (handles blocking check internally)
@@ -107,7 +107,7 @@ class GameEngine(QObject):
             
             # Check for blocking or error message
             if raw_response.startswith("[System"):
-                 self.text_updated.emit("System", raw_response)
+                 self.text_updated.emit("系统", raw_response)
                  self.state = GameState.IDLE
                  return
 
@@ -173,14 +173,14 @@ class GameEngine(QObject):
         self._current_full_text = "" # Clear visual text
         self._sound_timer.stop() # Cancel any pending sound stop
         self.audio.stop_looping_sfx() # Stop any looping sounds
-        self.text_updated.emit("System", self._current_full_text)
+        self.text_updated.emit("系统", self._current_full_text)
 
     def _type_step(self):
         if self._typewriter_index < len(self._current_text_segment):
             self._typewriter_index += 1
             new_char = self._current_text_segment[self._typewriter_index-1]
             self._current_full_text += new_char
-            self.text_updated.emit("System", self._current_full_text)
+            self.text_updated.emit("系统", self._current_full_text)
         else:
             self.typing_timer.stop()
             # Finished typing this segment, move to the next
@@ -190,31 +190,86 @@ class GameEngine(QObject):
         parts = tag.split("-")
         category = parts[0]
         
+        # Memory Reference
+        memory = self.backend.memory if self.backend and hasattr(self.backend, "memory") else None
+
         if category == "Background" and len(parts) > 1:
-            self.visual.set_background(parts[1])
+            bg_name = parts[1]
+            self.visual.set_background(bg_name)
+            if memory:
+                memory.state.current_bg = bg_name
+                # memory.save_gamestate() # Optional: save on every change?
+
         elif category == "Music" and len(parts) > 1:
-            self._play_music(parts[1])
+            music_name = parts[1]
+            self._play_music(music_name)
+            if memory:
+                memory.state.current_bgm = music_name
+
         elif category == "StopBGM":
             self.audio.stop_bgm()
+            if memory:
+                memory.state.current_bgm = "None"
+
         elif category == "sound" and len(parts) > 1:
             self._play_sound(parts)
         elif category == "StopSound":
             self.audio.stop_sfx()
+        
         elif category == "立绘" and len(parts) > 2:
             name, action = parts[1], parts[2]
             if hasattr(self.visual, "presets") and action in self.visual.presets:
                 self.visual.apply_preset(name, action)
             else:
                 self.visual.animate_sprite(name, action.lower())
+
         elif category == "Sprite" and len(parts) > 2:
             self.visual.apply_preset(parts[1], parts[2])
+        
         elif category == "fg" and len(parts) > 2:
-            self.visual.set_expression(parts[1], parts[2])
+            name, expr = parts[1], parts[2]
+            self.visual.set_expression(name, expr)
+            if memory:
+                memory.state.visible_characters[name] = expr
+
         elif category in ["Join", "Enter"] and len(parts) > 1:
+            name = parts[1]
             preset = parts[2] if len(parts) > 2 else "pos_center"
-            self.visual.join_character(parts[1], preset)
+            self.visual.join_character(name, preset)
+            if memory:
+                 # Default expr? VisualManager handles it, maybe we should ask VM or just assume default
+                 # Or just track presence. We can assume 'default' if unknown.
+                 current_expr = memory.state.visible_characters.get(name, "default")
+                 memory.state.visible_characters[name] = current_expr
+
         elif category in ["Leave", "Exit"] and len(parts) > 1:
-            self.visual.remove_sprite(parts[1])
+            name = parts[1]
+            self.visual.remove_sprite(name)
+            if memory and name in memory.state.visible_characters:
+                del memory.state.visible_characters[name]
+        
+        # New: Date Change [日期-2026-01-07]
+        elif category == "日期" and len(parts) > 1:
+            new_date = parts[1]
+            if memory:
+                memory.state.date = new_date
+                memory.save_gamestate()
+                print(f"[GameEngine] Date changed to: {new_date}")
+
+        # New: Affection Change [Name-好感-+10]
+        elif len(parts) > 2 and parts[1] == "好感":
+            name = parts[0]
+            try:
+                # Handle "+10", "-5", "5"
+                delta = int(parts[2])
+                if memory:
+                    current = memory.state.favorability.get(name, 0)
+                    new_val = current + delta
+                    memory.state.favorability[name] = new_val
+                    memory.save_gamestate()
+                    print(f"[GameEngine] {name} favorability updated: {current} -> {new_val} (Delta: {delta})")
+            except ValueError:
+                print(f"[GameEngine] Invalid affection value: {parts[2]}")
             
     def _play_music(self, music_name: str):
         found_entry = next((item for item in self.registry.get("music", []) if item["name"] == music_name), None)

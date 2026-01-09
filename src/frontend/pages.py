@@ -32,22 +32,22 @@ class MainMenuPage(QWidget):
         title.setStyleSheet("font-size: 32px; font-weight: bold; margin-bottom: 50px;")
         layout.addWidget(title)
         
-        btn_start = QPushButton("Start Game")
+        btn_start = QPushButton("开始游戏")
         btn_start.clicked.connect(self.start_signal.emit)
         
-        btn_load = QPushButton("Load Game")
+        btn_load = QPushButton("读取游戏")
         btn_load.clicked.connect(self.load_signal.emit)
         
-        btn_config = QPushButton("Config")
+        btn_config = QPushButton("设置")
         btn_config.clicked.connect(self.config_signal.emit)
         
-        btn_editor = QPushButton("Editor (Dev)")
+        btn_editor = QPushButton("编辑器 (开发)")
         btn_editor.clicked.connect(self.editor_signal.emit)
 
-        btn_debug = QPushButton("Debug Console")
+        btn_debug = QPushButton("调试控制台")
         btn_debug.clicked.connect(self.debug_signal.emit)
         
-        btn_exit = QPushButton("Exit")
+        btn_exit = QPushButton("退出")
         btn_exit.clicked.connect(self.exit_signal.emit)
         
         for btn in [btn_start, btn_load, btn_config, btn_editor, btn_debug, btn_exit]:
@@ -73,7 +73,7 @@ class ConfigPage(QWidget):
         layout_ai = QVBoxLayout()
         
         # 1. Storyteller (AI-1)
-        group_story = QGroupBox("AI Group 1: Storyteller (剧情生成)")
+        group_story = QGroupBox("AI 组 1：故事讲述者 (剧情生成)")
         form_story = QFormLayout()
         self.url_story = QLineEdit("https://api.openai.com/v1")
         self.key_story = QLineEdit()
@@ -81,26 +81,26 @@ class ConfigPage(QWidget):
         
         self.model_story_combo = QComboBox()
         self.model_story_combo.setEditable(True)
-        self.btn_fetch_story = QPushButton("Fetch Models")
+        self.btn_fetch_story = QPushButton("获取模型")
         self.btn_fetch_story.clicked.connect(self.fetch_story_models)
         
         layout_model_story = QHBoxLayout()
         layout_model_story.addWidget(self.model_story_combo)
         layout_model_story.addWidget(self.btn_fetch_story)
         
-        self.btn_test_story = QPushButton("Test Connection")
+        self.btn_test_story = QPushButton("测试连接")
         self.lbl_status_story = QLabel("")
         self.btn_test_story.clicked.connect(self.test_storyteller)
         
-        form_story.addRow("Base URL:", self.url_story)
-        form_story.addRow("API Key:", self.key_story)
-        form_story.addRow("Model:", layout_model_story)
+        form_story.addRow("基础 URL：", self.url_story)
+        form_story.addRow("API 密钥：", self.key_story)
+        form_story.addRow("模型：", layout_model_story)
         form_story.addRow(self.btn_test_story, self.lbl_status_story)
         group_story.setLayout(form_story)
         layout_ai.addWidget(group_story)
 
         # 2. Summary (New)
-        group_summary = QGroupBox("AI Group 2: Summary (大小总结)")
+        group_summary = QGroupBox("AI 组 2：总结 (大小总结)")
         form_summary = QFormLayout()
         self.url_summary = QLineEdit("https://api.openai.com/v1")
         self.key_summary = QLineEdit()
@@ -108,26 +108,26 @@ class ConfigPage(QWidget):
         
         self.model_summary_combo = QComboBox()
         self.model_summary_combo.setEditable(True)
-        self.btn_fetch_summary = QPushButton("Fetch Models")
+        self.btn_fetch_summary = QPushButton("获取模型")
         self.btn_fetch_summary.clicked.connect(self.fetch_summary_models)
         
         layout_model_summary = QHBoxLayout()
         layout_model_summary.addWidget(self.model_summary_combo)
         layout_model_summary.addWidget(self.btn_fetch_summary)
         
-        self.btn_test_summary = QPushButton("Test Connection")
+        self.btn_test_summary = QPushButton("测试连接")
         self.lbl_status_summary = QLabel("")
         self.btn_test_summary.clicked.connect(self.test_summary)
         
-        form_summary.addRow("Base URL:", self.url_summary)
-        form_summary.addRow("API Key:", self.key_summary)
-        form_summary.addRow("Model:", layout_model_summary)
+        form_summary.addRow("基础 URL：", self.url_summary)
+        form_summary.addRow("API 密钥：", self.key_summary)
+        form_summary.addRow("模型：", layout_model_summary)
         form_summary.addRow(self.btn_test_summary, self.lbl_status_summary)
         group_summary.setLayout(form_summary)
         layout_ai.addWidget(group_summary)
 
         # 3. Logic (Director + Architect)
-        group_logic = QGroupBox("AI Group 3: Logic (指令 + 剧情规划)")
+        group_logic = QGroupBox("AI 组 3：逻辑 (指令 + 剧情规划)")
         form_logic = QFormLayout()
         self.url_logic = QLineEdit("https://api.openai.com/v1")
         self.key_logic = QLineEdit()
@@ -135,33 +135,40 @@ class ConfigPage(QWidget):
         
         self.model_logic_combo = QComboBox()
         self.model_logic_combo.setEditable(True)
-        self.btn_fetch_logic = QPushButton("Fetch Models")
+        self.btn_fetch_logic = QPushButton("获取模型")
         self.btn_fetch_logic.clicked.connect(self.fetch_logic_models)
         
         layout_model_logic = QHBoxLayout()
         layout_model_logic.addWidget(self.model_logic_combo)
         layout_model_logic.addWidget(self.btn_fetch_logic)
 
-        self.btn_test_logic = QPushButton("Test Connection")
+        # New: Plot Planning Frequency
+        self.spin_plot_freq = QSpinBox()
+        self.spin_plot_freq.setRange(1, 10)
+        self.spin_plot_freq.setValue(5)
+        self.spin_plot_freq.setSuffix(" 个小总结")
+
+        self.btn_test_logic = QPushButton("测试连接")
         self.lbl_status_logic = QLabel("")
         self.btn_test_logic.clicked.connect(self.test_logic)
         
-        form_logic.addRow("Base URL:", self.url_logic)
-        form_logic.addRow("API Key:", self.key_logic)
-        form_logic.addRow("Model:", layout_model_logic)
+        form_logic.addRow("基础 URL：", self.url_logic)
+        form_logic.addRow("API 密钥：", self.key_logic)
+        form_logic.addRow("模型：", layout_model_logic)
+        form_logic.addRow("规划频率：", self.spin_plot_freq)
         form_logic.addRow(self.btn_test_logic, self.lbl_status_logic)
         group_logic.setLayout(form_logic)
         layout_ai.addWidget(group_logic)
         
         layout_ai.addStretch()
         self.tab_ai.setLayout(layout_ai)
-        self.tabs.addTab(self.tab_ai, "AI Configuration")
+        self.tabs.addTab(self.tab_ai, "AI 配置")
         
         # --- Tab 2: Audio Settings ---
         self.tab_audio = QWidget()
         layout_audio = QVBoxLayout()
         
-        group_vol = QGroupBox("Volume Control")
+        group_vol = QGroupBox("音量控制")
         form_vol = QFormLayout()
         
         self.bgm_slider = QSlider(Qt.Orientation.Horizontal)
@@ -171,25 +178,25 @@ class ConfigPage(QWidget):
         self.voice_slider = QSlider(Qt.Orientation.Horizontal)
         self.voice_slider.setRange(0, 100)
         
-        form_vol.addRow("BGM:", self.bgm_slider)
-        form_vol.addRow("SFX:", self.sfx_slider)
-        form_vol.addRow("Voice:", self.voice_slider)
+        form_vol.addRow("背景音乐：", self.bgm_slider)
+        form_vol.addRow("音效：", self.sfx_slider)
+        form_vol.addRow("语音：", self.voice_slider)
         group_vol.setLayout(form_vol)
         layout_audio.addWidget(group_vol)
         
         layout_audio.addStretch()
         self.tab_audio.setLayout(layout_audio)
-        self.tabs.addTab(self.tab_audio, "Audio")
+        self.tabs.addTab(self.tab_audio, "音频")
 
         # --- Tab 3: Text Settings ---
         self.tab_text = QWidget()
         layout_text = QVBoxLayout()
 
-        group_font = QGroupBox("Font Settings")
+        group_font = QGroupBox("字体设置")
         form_font = QFormLayout()
 
         self.combo_font = QComboBox()
-        self.btn_import_font = QPushButton("Import Font (.ttf)")
+        self.btn_import_font = QPushButton("导入字体 (.ttf)")
         self.btn_import_font.clicked.connect(self.import_font)
 
         layout_font_import = QHBoxLayout()
@@ -200,53 +207,32 @@ class ConfigPage(QWidget):
         self.spin_font_size.setRange(8, 72)
         self.spin_font_size.setValue(16)
 
-        self.chk_font_bold = QCheckBox("Bold")
+        self.chk_font_bold = QCheckBox("粗体")
         
         self.spin_text_speed = QSpinBox()
         self.spin_text_speed.setRange(10, 200)
         self.spin_text_speed.setValue(50)
         self.spin_text_speed.setSuffix(" ms")
 
-        form_font.addRow("Font Family:", layout_font_import)
-        form_font.addRow("Font Size:", self.spin_font_size)
-        form_font.addRow("Style:", self.chk_font_bold)
-        form_font.addRow("Text Speed:", self.spin_text_speed)
+        form_font.addRow("字体家族：", layout_font_import)
+        form_font.addRow("字体大小：", self.spin_font_size)
+        form_font.addRow("样式：", self.chk_font_bold)
+        form_font.addRow("文本速度：", self.spin_text_speed)
         
         group_font.setLayout(form_font)
         layout_text.addWidget(group_font)
         layout_text.addStretch()
         
         self.tab_text.setLayout(layout_text)
-        self.tabs.addTab(self.tab_text, "Text")
+        self.tabs.addTab(self.tab_text, "文本")
         
-        # --- Tab 4: Prompt Settings ---
-        self.tab_prompts = QWidget()
-        layout_prompts = QHBoxLayout()
-        
-        # Left: Summary AI
-        layout_p_summary = QVBoxLayout()
-        layout_p_summary.addWidget(QLabel("Summary AI Prompt:"))
-        self.txt_prompt_summary = QTextEdit()
-        layout_p_summary.addWidget(self.txt_prompt_summary)
-        layout_prompts.addLayout(layout_p_summary)
-        
-        # Right: Planner AI
-        layout_p_planner = QVBoxLayout()
-        layout_p_planner.addWidget(QLabel("Plot Planning AI Prompt:"))
-        self.txt_prompt_planner = QTextEdit()
-        layout_p_planner.addWidget(self.txt_prompt_planner)
-        layout_prompts.addLayout(layout_p_planner)
-        
-        self.tab_prompts.setLayout(layout_prompts)
-        self.tabs.addTab(self.tab_prompts, "Prompts")
-
         # --- Tab 5: Developer (Presets) ---
         self.tab_dev = QWidget()
         self._init_dev_tab()
-        self.tabs.addTab(self.tab_dev, "Developer")
+        self.tabs.addTab(self.tab_dev, "开发者")
 
         # --- Footer ---
-        btn_back = QPushButton("Save & Back")
+        btn_back = QPushButton("保存并返回")
         btn_back.clicked.connect(self.save_and_back)
         main_layout.addWidget(btn_back)
         
@@ -256,14 +242,14 @@ class ConfigPage(QWidget):
 
     def _init_dev_tab(self):
         layout = QVBoxLayout()
-        group_presets = QGroupBox("Sprite Transform Presets (assets/presets.json)")
+        group_presets = QGroupBox("立绘变换预设 (assets/presets.json)")
         form_presets = QFormLayout()
         
         # Zoom Half
         self.spin_zoom = QDoubleSpinBox()
         self.spin_zoom.setRange(0.1, 5.0)
         self.spin_zoom.setSingleStep(0.1)
-        form_presets.addRow("Zoom Scale (zoom_half):", self.spin_zoom)
+        form_presets.addRow("缩放比例 (zoom_half)：", self.spin_zoom)
         
         # Center
         self.spin_cx = QSpinBox()
@@ -275,7 +261,7 @@ class ConfigPage(QWidget):
         l_c.addWidget(self.spin_cx)
         l_c.addWidget(QLabel("Y:"))
         l_c.addWidget(self.spin_cy)
-        form_presets.addRow("Center Pos (pos_center):", l_c)
+        form_presets.addRow("中心位置 (pos_center)：", l_c)
         
         # Left
         self.spin_lx = QSpinBox()
@@ -287,7 +273,7 @@ class ConfigPage(QWidget):
         l_l.addWidget(self.spin_lx)
         l_l.addWidget(QLabel("Y:"))
         l_l.addWidget(self.spin_ly)
-        form_presets.addRow("Left Pos (pos_left):", l_l)
+        form_presets.addRow("左侧位置 (pos_left)：", l_l)
         
         # Right
         self.spin_rx = QSpinBox()
@@ -299,7 +285,7 @@ class ConfigPage(QWidget):
         l_r.addWidget(self.spin_rx)
         l_r.addWidget(QLabel("Y:"))
         l_r.addWidget(self.spin_ry)
-        form_presets.addRow("Right Pos (pos_right):", l_r)
+        form_presets.addRow("右侧位置 (pos_right)：", l_r)
         
         group_presets.setLayout(form_presets)
         layout.addWidget(group_presets)
@@ -415,7 +401,7 @@ class ConfigPage(QWidget):
     async def _fetch_and_populate(self, url, key, combo_box: QComboBox):
         try:
             combo_box.clear()
-            combo_box.addItem("Fetching...")
+            combo_box.addItem("获取中...")
             client = APIClient(api_keys=[key], base_url=url)
             models = await client.list_models()
             
@@ -423,11 +409,11 @@ class ConfigPage(QWidget):
             if models:
                 combo_box.addItems(models)
             else:
-                combo_box.addItem("No models found")
+                combo_box.addItem("未找到模型")
                 
         except Exception as e:
             combo_box.clear()
-            combo_box.addItem(f"Error: {str(e)}")
+            combo_box.addItem(f"错误：{str(e)}")
 
     @qasync.asyncSlot()
     async def test_storyteller(self):
@@ -457,7 +443,7 @@ class ConfigPage(QWidget):
         )
 
     async def _run_test(self, url, key, model, label_widget):
-        label_widget.setText("Testing...")
+        label_widget.setText("测试中...")
         label_widget.setStyleSheet("color: blue;")
         
         client = APIClient(api_keys=[key], base_url=url)
@@ -467,14 +453,14 @@ class ConfigPage(QWidget):
             response = await client.chat_completion(messages, model=model)
             
             if response:
-                label_widget.setText("Success!")
+                label_widget.setText("成功！")
                 label_widget.setStyleSheet("color: green; font-weight: bold;")
             else:
-                label_widget.setText("Empty Response")
+                label_widget.setText("空响应")
                 label_widget.setStyleSheet("color: orange;")
                 
         except Exception as e:
-            label_widget.setText(f"Failed: {str(e)}")
+            label_widget.setText(f"失败：{str(e)}")
             label_widget.setStyleSheet("color: red;")
 
     def save_and_back(self):
@@ -491,6 +477,7 @@ class ConfigPage(QWidget):
             "url_logic": self.url_logic.text(),
             "key_logic": self.key_logic.text(),
             "model_logic": self.model_logic_combo.currentText(),
+            "plot_planning_freq": self.spin_plot_freq.value(),
             # Audio
             "vol_bgm": self.bgm_slider.value(),
             "vol_sfx": self.sfx_slider.value(),
@@ -499,10 +486,7 @@ class ConfigPage(QWidget):
             "font_family": self.combo_font.currentText(),
             "font_size": self.spin_font_size.value(),
             "font_bold": self.chk_font_bold.isChecked(),
-            "text_speed": self.spin_text_speed.value(),
-            # Prompts
-            "prompt_summary": self.txt_prompt_summary.toPlainText(),
-            "prompt_planner": self.txt_prompt_planner.toPlainText()
+            "text_speed": self.spin_text_speed.value()
         }
         with open(self.config_file, 'w') as f:
             json.dump(data, f)
@@ -527,6 +511,7 @@ class ConfigPage(QWidget):
                     self.url_logic.setText(data.get("url_logic", "https://api.openai.com/v1"))
                     self.key_logic.setText(data.get("key_logic", ""))
                     self.model_logic_combo.setCurrentText(data.get("model_logic", "gpt-4"))
+                    self.spin_plot_freq.setValue(data.get("plot_planning_freq", 5))
                     
                     # Audio
                     self.bgm_slider.setValue(data.get("vol_bgm", 50))
@@ -538,13 +523,6 @@ class ConfigPage(QWidget):
                     self.spin_font_size.setValue(data.get("font_size", 16))
                     self.chk_font_bold.setChecked(data.get("font_bold", False))
                     self.spin_text_speed.setValue(data.get("text_speed", 50))
-                    
-                    # Prompts
-                    self.txt_prompt_summary.setText(data.get("prompt_summary", "Summarize this conversation briefly in 2-3 sentences."))
-                    default_planner = ("You are the Lead Writer (Architect) for a visual novel. \n"
-                                       "Your goal is to analyze the current story state and propose 3 distinct, interesting plot developments.\n"
-                                       "Output STRICTLY in JSON format with a key 'options' containing a list of 3 strings.")
-                    self.txt_prompt_planner.setText(data.get("prompt_planner", default_planner))
             except:
                 pass
         
@@ -574,15 +552,15 @@ class SaveLoadPage(QWidget):
         
         # Header (Back + Pagination)
         header = QHBoxLayout()
-        btn_back = QPushButton("Back")
+        btn_back = QPushButton("返回")
         btn_back.clicked.connect(self.back_signal.emit)
         btn_back.setFixedSize(100, 40)
         
-        self.btn_prev = QPushButton("< Prev")
+        self.btn_prev = QPushButton("< 上一页")
         self.btn_prev.clicked.connect(self.prev_page)
-        self.lbl_page = QLabel("Page 1")
+        self.lbl_page = QLabel("第 1 页")
         self.lbl_page.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.btn_next = QPushButton("Next >")
+        self.btn_next = QPushButton("下一页 >")
         self.btn_next.clicked.connect(self.next_page)
         
         header.addWidget(btn_back)
@@ -671,7 +649,7 @@ class SaveLoadPage(QWidget):
             if item.widget():
                 item.widget().deleteLater()
         
-        self.lbl_page.setText(f"Page {self.current_page}")
+        self.lbl_page.setText(f"第 {self.current_page} 页")
         
         start_index = (self.current_page - 1) * self.slots_per_page + 1
         end_index = start_index + self.slots_per_page
@@ -688,7 +666,7 @@ class SaveLoadPage(QWidget):
             if os.path.exists(img_path):
                 lbl_img.setPixmap(QPixmap(img_path))
             else:
-                lbl_img.setText(f"Slot {slot_id}\n(Empty)")
+                lbl_img.setText(f"存档位 {slot_id}\n(空)")
                 lbl_img.setAlignment(Qt.AlignmentFlag.AlignCenter)
             lbl_img.setFixedSize(160, 90) # Smaller for 4x4
             lbl_img.setScaledContents(True)
@@ -713,7 +691,7 @@ class SaveLoadPage(QWidget):
                 except:
                     f_layout.addWidget(QLabel("Error"))
 
-                btn_load = QPushButton("Load")
+                btn_load = QPushButton("读取")
                 btn_load.clicked.connect(lambda checked=False, s=slot_id: self.load_game(s))
                 
                 btn_del = QPushButton("X")
@@ -725,7 +703,7 @@ class SaveLoadPage(QWidget):
                 btn_layout.addWidget(btn_del)
             else:
                 f_layout.addWidget(QLabel("--/--/--"))
-                btn_save = QPushButton("Save")
+                btn_save = QPushButton("保存")
                 btn_save.clicked.connect(lambda checked=False, s=slot_id: self.save_game(s))
                 btn_layout.addWidget(btn_save)
             
@@ -743,8 +721,363 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, 
     QTextEdit, QTreeWidget, QTreeWidgetItem, QSplitter, QMessageBox,
     QHeaderView, QTabWidget, QListWidget, QListWidgetItem, QComboBox,
-    QAbstractItemView
+    QAbstractItemView, QTableWidget, QTableWidgetItem
 )
+
+# --- Date Guidance Tab ---
+class DateGuidanceTab(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.file_path = "assets/世界设定/剧情指导.json"
+        
+        layout = QVBoxLayout()
+        
+        # Toolbar
+        toolbar = QHBoxLayout()
+        btn_refresh = QPushButton("刷新")
+        btn_refresh.clicked.connect(self.load_data)
+        btn_add = QPushButton("添加事件")
+        btn_add.clicked.connect(self.add_row)
+        btn_del = QPushButton("删除选中")
+        btn_del.setStyleSheet("color: red;")
+        btn_del.clicked.connect(self.delete_row)
+        btn_save = QPushButton("保存全部")
+        btn_save.setStyleSheet("background-color: #2196F3; color: white; font-weight: bold;")
+        btn_save.clicked.connect(self.save_data)
+        
+        toolbar.addWidget(btn_refresh)
+        toolbar.addWidget(btn_add)
+        toolbar.addWidget(btn_del)
+        toolbar.addStretch()
+        toolbar.addWidget(btn_save)
+        layout.addLayout(toolbar)
+        
+        # Table
+        self.table = QTableWidget()
+        self.table.setColumnCount(2)
+        self.table.setHorizontalHeaderLabels(["日期 / 条件", "剧情大纲 / 指导"])
+        self.table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.Interactive)
+        self.table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        self.table.setColumnWidth(0, 150)
+        self.table.setAlternatingRowColors(True)
+        self.table.setStyleSheet("QTableWidget { font-size: 14px; selection-background-color: #007acc; }")
+        layout.addWidget(self.table)
+        
+        self.setLayout(layout)
+        self.load_data()
+
+    def load_data(self):
+        self.table.setRowCount(0)
+        if not os.path.exists(self.file_path):
+            return
+            
+        try:
+            with open(self.file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                
+            # Expecting list of dicts: [{"date": "...", "outline": "..."}]
+            for item in data:
+                row = self.table.rowCount()
+                self.table.insertRow(row)
+                
+                date_item = QTableWidgetItem(item.get("date", ""))
+                outline_item = QTableWidgetItem(item.get("outline", ""))
+                
+                self.table.setItem(row, 0, date_item)
+                self.table.setItem(row, 1, outline_item)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to load date guidance: {e}")
+
+    def add_row(self):
+        row = self.table.rowCount()
+        self.table.insertRow(row)
+        self.table.setItem(row, 0, QTableWidgetItem("Day X"))
+        self.table.setItem(row, 1, QTableWidgetItem("..."))
+
+    def delete_row(self):
+        row = self.table.currentRow()
+        if row >= 0:
+            self.table.removeRow(row)
+
+    def save_data(self):
+        data = []
+        for r in range(self.table.rowCount()):
+            d = self.table.item(r, 0).text()
+            o = self.table.item(r, 1).text()
+            if d.strip(): # Only save if date is present
+                data.append({"date": d, "outline": o})
+        
+        try:
+            # Ensure dir
+            os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
+            with open(self.file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            QMessageBox.information(self, "Success", "Date guidance saved.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to save: {e}")
+
+
+# --- NPC Editor Tab (Improved) ---
+class NpcEditorTab(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.root_path = "assets/NPC人设/重要NPC"
+        if not os.path.exists(self.root_path):
+            os.makedirs(self.root_path)
+            
+        self.current_npc = None
+        
+        main_layout = QVBoxLayout(self)
+        
+        # Global Toolbar
+        top_bar = QHBoxLayout()
+        btn_add = QPushButton("+ 新建 NPC")
+        btn_add.clicked.connect(self.add_npc)
+        btn_del = QPushButton("- 删除 NPC")
+        btn_del.setStyleSheet("color: red;")
+        btn_del.clicked.connect(self.delete_npc)
+        btn_refresh = QPushButton("刷新列表")
+        btn_refresh.clicked.connect(self.refresh_list)
+        
+        top_bar.addWidget(QLabel("<b>NPC 管理器</b>"))
+        top_bar.addStretch()
+        top_bar.addWidget(btn_add)
+        top_bar.addWidget(btn_del)
+        top_bar.addWidget(btn_refresh)
+        main_layout.addLayout(top_bar)
+        
+        # Splitter for Content
+        self.splitter = QSplitter(Qt.Orientation.Horizontal)
+        main_layout.addWidget(self.splitter)
+        
+        # LEFT: List
+        self.list_npcs = QListWidget()
+        self.list_npcs.setStyleSheet("""
+            QListWidget {
+                font-size: 14px;
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+            QListWidget::item {
+                padding: 8px;
+            }
+            QListWidget::item:selected {
+                background-color: #0078d7;
+                color: white;
+            }
+        """)
+        self.list_npcs.itemClicked.connect(self.on_npc_selected)
+        self.splitter.addWidget(self.list_npcs)
+        
+        # RIGHT: Editor Area
+        self.right_widget = QWidget()
+        right_layout = QVBoxLayout(self.right_widget)
+        right_layout.setContentsMargins(10, 0, 0, 0)
+        
+        self.lbl_selected = QLabel("选择一个 NPC 进行编辑")
+        self.lbl_selected.setStyleSheet("font-size: 16px; font-weight: bold; color: #555;")
+        right_layout.addWidget(self.lbl_selected)
+        
+        self.editor_tabs = QTabWidget()
+        
+        # Tab 1: Profile (Text)
+        self.txt_profile = QTextEdit()
+        self.txt_profile.setStyleSheet("font-family: Consolas, monospace; font-size: 14px;")
+        self.editor_tabs.addTab(self.txt_profile, "档案 (TXT)")
+        
+        # Tab 2: Affection Rules (Table)
+        self.table_rules = QTableWidget()
+        self.table_rules.setColumnCount(2)
+        self.table_rules.setHorizontalHeaderLabels(["阈值 (>=)", "态度 / 提示词"])
+        self.table_rules.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        self.table_rules.setAlternatingRowColors(True)
+        self.editor_tabs.addTab(self.table_rules, "好感度规则 (JSON)")
+        
+        right_layout.addWidget(self.editor_tabs)
+        
+        # Editor Buttons (Bottom of right panel)
+        editor_btns = QHBoxLayout()
+        
+        # Table Controls
+        self.btn_add_rule = QPushButton("添加规则")
+        self.btn_add_rule.clicked.connect(self.add_rule_row)
+        self.btn_del_rule = QPushButton("移除规则")
+        self.btn_del_rule.clicked.connect(self.delete_rule_row)
+        
+        self.btn_save = QPushButton("保存更改")
+        self.btn_save.setStyleSheet("background-color: #4CAF50; color: white; font-weight: bold; padding: 8px 20px;")
+        self.btn_save.clicked.connect(self.save_changes)
+        
+        editor_btns.addWidget(self.btn_add_rule)
+        editor_btns.addWidget(self.btn_del_rule)
+        editor_btns.addStretch()
+        editor_btns.addWidget(self.btn_save)
+        
+        right_layout.addLayout(editor_btns)
+        
+        self.splitter.addWidget(self.right_widget)
+        self.splitter.setStretchFactor(0, 1)
+        self.splitter.setStretchFactor(1, 3)
+        
+        # Logic Init
+        self.table_rules_visible(False)
+        self.refresh_list()
+
+    def table_rules_visible(self, show):
+        self.btn_add_rule.setVisible(show)
+        self.btn_del_rule.setVisible(show)
+        # We hook tab change to show/hide table buttons
+        self.editor_tabs.currentChanged.connect(self.on_tab_changed)
+
+    def on_tab_changed(self, index):
+        # Index 1 is Rules tab
+        is_rules = (index == 1)
+        self.btn_add_rule.setVisible(is_rules)
+        self.btn_del_rule.setVisible(is_rules)
+
+    def refresh_list(self):
+        self.list_npcs.clear()
+        if os.path.exists(self.root_path):
+            for name in os.listdir(self.root_path):
+                if os.path.isdir(os.path.join(self.root_path, name)):
+                    self.list_npcs.addItem(name)
+        self.current_npc = None
+        self.lbl_selected.setText("选择一个 NPC 进行编辑")
+        self.txt_profile.clear()
+        self.table_rules.setRowCount(0)
+        self.btn_save.setEnabled(False)
+
+    def on_npc_selected(self, item):
+        self.current_npc = item.text()
+        self.lbl_selected.setText(f"Editing: {self.current_npc}")
+        self.btn_save.setEnabled(True)
+        self.load_npc_data()
+
+    def load_npc_data(self):
+        if not self.current_npc: return
+        
+        base = os.path.join(self.root_path, self.current_npc)
+        p_path = os.path.join(base, "人物人设.txt")
+        r_path = os.path.join(base, "好感度提示词.json")
+        
+        # Load Profile
+        if os.path.exists(p_path):
+            with open(p_path, "r", encoding="utf-8") as f:
+                self.txt_profile.setText(f.read())
+        else:
+            self.txt_profile.setText("")
+            
+        # Load Rules Table
+        self.table_rules.setRowCount(0)
+        if os.path.exists(r_path):
+            try:
+                with open(r_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    # Expecting list of dicts
+                    data.sort(key=lambda x: x.get("threshold", 0))
+                    
+                    for rule in data:
+                        row = self.table_rules.rowCount()
+                        self.table_rules.insertRow(row)
+                        
+                        th_item = QTableWidgetItem(str(rule.get("threshold", 0)))
+                        at_item = QTableWidgetItem(rule.get("attitude", ""))
+                        
+                        self.table_rules.setItem(row, 0, th_item)
+                        self.table_rules.setItem(row, 1, at_item)
+            except:
+                pass
+
+    def add_rule_row(self):
+        row = self.table_rules.rowCount()
+        self.table_rules.insertRow(row)
+        self.table_rules.setItem(row, 0, QTableWidgetItem("0"))
+        self.table_rules.setItem(row, 1, QTableWidgetItem("Neutral"))
+
+    def delete_rule_row(self):
+        row = self.table_rules.currentRow()
+        if row >= 0:
+            self.table_rules.removeRow(row)
+
+    def save_changes(self):
+        if not self.current_npc: return
+        
+        base = os.path.join(self.root_path, self.current_npc)
+        if not os.path.exists(base):
+            os.makedirs(base)
+            
+        p_path = os.path.join(base, "人物人设.txt")
+        r_path = os.path.join(base, "好感度提示词.json")
+        
+        # 1. Save Profile
+        try:
+            with open(p_path, "w", encoding="utf-8") as f:
+                f.write(self.txt_profile.toPlainText())
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to save profile: {e}")
+            return
+
+        # 2. Save Rules
+        rules_data = []
+        for r in range(self.table_rules.rowCount()):
+            th_str = self.table_rules.item(r, 0).text()
+            at_str = self.table_rules.item(r, 1).text()
+            
+            try:
+                th_val = int(th_str)
+            except:
+                th_val = 0
+            
+            if at_str.strip():
+                rules_data.append({"threshold": th_val, "attitude": at_str})
+        
+        # Sort by threshold desc? Or keep user order? 
+        # Usually for matching we want desc, but Assembler sorts it.
+        # Let's just save.
+        
+        try:
+            with open(r_path, "w", encoding="utf-8") as f:
+                json.dump(rules_data, f, indent=4, ensure_ascii=False)
+            QMessageBox.information(self, "Success", f"Saved data for {self.current_npc}")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to save rules: {e}")
+
+    def add_npc(self):
+        name, ok = QInputDialog.getText(self, "Add NPC", "Enter NPC Name (Folder Name):")
+        if ok and name:
+            name = name.strip()
+            # Basic validation
+            if not name or any(c in name for c in r'<>:"/\|?*'):
+                QMessageBox.warning(self, "Error", "Invalid name.")
+                return
+                
+            path = os.path.join(self.root_path, name)
+            if os.path.exists(path):
+                QMessageBox.warning(self, "Error", "NPC already exists.")
+                return
+            
+            try:
+                os.makedirs(path)
+                with open(os.path.join(path, "人物人设.txt"), "w", encoding="utf-8") as f:
+                    f.write(f"Name: {name}\nAge: ??\nPersonality: ...")
+                with open(os.path.join(path, "好感度提示词.json"), "w", encoding="utf-8") as f:
+                    json.dump([{"threshold": 0, "attitude": "Neutral"}], f, indent=4)
+                self.refresh_list()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", str(e))
+
+    def delete_npc(self):
+        item = self.list_npcs.currentItem()
+        if not item: return
+        name = item.text()
+        
+        confirm = QMessageBox.question(self, "Confirm Delete", f"Delete '{name}' and all files?", QMessageBox.Yes | QMessageBox.No)
+        if confirm == QMessageBox.Yes:
+            try:
+                shutil.rmtree(os.path.join(self.root_path, name))
+                self.refresh_list()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", str(e))
 
 class EditorPage(QWidget):
     back_signal = Signal()
@@ -757,12 +1090,12 @@ class EditorPage(QWidget):
         
         # Header
         header = QHBoxLayout()
-        lbl_title = QLabel("Universal Prompt Editor")
+        lbl_title = QLabel("通用提示词编辑器")
         lbl_title.setStyleSheet("font-size: 20px; font-weight: bold;")
         header.addWidget(lbl_title)
         header.addStretch()
         
-        btn_back = QPushButton("Back to Menu")
+        btn_back = QPushButton("返回菜单")
         btn_back.clicked.connect(self.back_signal.emit)
         btn_back.setFixedSize(120, 40)
         header.addWidget(btn_back)
@@ -776,12 +1109,20 @@ class EditorPage(QWidget):
         # Tab 1: File Editor
         self.tab_files = QWidget()
         self._init_file_editor_tab()
-        self.tabs.addTab(self.tab_files, "Resource Files")
+        self.tabs.addTab(self.tab_files, "资源文件")
         
         # Tab 2: Sequence Editor
         self.tab_sequences = QWidget()
         self._init_sequence_editor_tab()
-        self.tabs.addTab(self.tab_sequences, "Prompt Sequences")
+        self.tabs.addTab(self.tab_sequences, "提示词序列")
+        
+        # Tab 3: NPC Manager
+        self.tab_npcs = NpcEditorTab()
+        self.tabs.addTab(self.tab_npcs, "NPC 管理器")
+        
+        # Tab 4: Date Guidance
+        self.tab_dates = DateGuidanceTab()
+        self.tabs.addTab(self.tab_dates, "日期/剧情指导")
         
         self.setLayout(main_layout)
         
@@ -796,7 +1137,7 @@ class EditorPage(QWidget):
         
         # Sub-header
         sub_header = QHBoxLayout()
-        btn_refresh = QPushButton("Refresh File List")
+        btn_refresh = QPushButton("刷新文件列表")
         btn_refresh.clicked.connect(self.refresh_tree)
         sub_header.addWidget(btn_refresh)
         sub_header.addStretch()
@@ -806,7 +1147,7 @@ class EditorPage(QWidget):
         
         # Left: Tree
         self.tree = QTreeWidget()
-        self.tree.setHeaderLabel("Asset Files")
+        self.tree.setHeaderLabel("资源文件")
         self.tree.header().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
         self.tree.setFixedWidth(300)
         self.tree.itemClicked.connect(self.on_tree_item_clicked)
@@ -817,13 +1158,13 @@ class EditorPage(QWidget):
         editor_layout = QVBoxLayout(editor_widget)
         editor_layout.setContentsMargins(0, 0, 0, 0)
         
-        self.lbl_current_file = QLabel("No file selected")
+        self.lbl_current_file = QLabel("未选择文件")
         self.lbl_current_file.setStyleSheet("color: gray; font-style: italic;")
         
         self.txt_editor = QTextEdit()
         self.txt_editor.setStyleSheet("font-family: Consolas, monospace; font-size: 14px;")
         
-        self.btn_save = QPushButton("Save Changes")
+        self.btn_save = QPushButton("保存更改")
         self.btn_save.setEnabled(False)
         self.btn_save.setStyleSheet("background-color: #4CAF50; color: white; font-weight: bold; padding: 10px;")
         self.btn_save.clicked.connect(self.save_current_file)
@@ -844,7 +1185,7 @@ class EditorPage(QWidget):
         left_layout = QVBoxLayout()
         
         l_header = QHBoxLayout()
-        l_header.addWidget(QLabel("Select Function:"))
+        l_header.addWidget(QLabel("选择功能："))
         self.combo_sequences = QComboBox()
         self.combo_sequences.currentIndexChanged.connect(self.load_selected_sequence)
         l_header.addWidget(self.combo_sequences)
@@ -855,9 +1196,9 @@ class EditorPage(QWidget):
         left_layout.addWidget(self.list_sequence)
         
         btn_layout = QHBoxLayout()
-        btn_refresh = QPushButton("Refresh/Reload")
+        btn_refresh = QPushButton("刷新/重新加载")
         btn_refresh.clicked.connect(self.refresh_sequences)
-        btn_save = QPushButton("Save Sequence Order")
+        btn_save = QPushButton("保存序列顺序")
         btn_save.setStyleSheet("background-color: #2196F3; color: white;")
         btn_save.clicked.connect(self.save_sequence_order)
         btn_layout.addWidget(btn_refresh)
@@ -869,8 +1210,8 @@ class EditorPage(QWidget):
         # Right: Item Details (Read-only for now, mainly context)
         right_group = QGroupBox("Selected Item Details")
         right_layout = QVBoxLayout()
-        self.lbl_item_type = QLabel("Type: -")
-        self.lbl_item_key = QLabel("Key/Content: -")
+        self.lbl_item_type = QLabel("类型：-")
+        self.lbl_item_key = QLabel("键/内容：-")
         self.lbl_item_key.setWordWrap(True)
         right_layout.addWidget(self.lbl_item_type)
         right_layout.addWidget(self.lbl_item_key)
@@ -895,9 +1236,21 @@ class EditorPage(QWidget):
         self.combo_sequences.clear()
         
         sequences = self.prompts_data.get("sequences", {})
+        
+        # Translation Map
+        display_map = {
+            "storyteller": "故事生成 (Storyteller)",
+            "director": "导演指令 (Director)",
+            "planner": "剧情规划 (Planner)",
+            "summary_big": "大总结 (Big Summary)",
+            "summary_small": "小总结 (Small Summary)"
+        }
+        
         for key in sequences.keys():
-            self.combo_sequences.addItem(key)
+            display_name = display_map.get(key, key)
+            self.combo_sequences.addItem(display_name, userData=key)
             
+        # Restore selection
         if current_text:
             index = self.combo_sequences.findText(current_text)
             if index >= 0:
@@ -907,7 +1260,14 @@ class EditorPage(QWidget):
         self.load_selected_sequence()
 
     def load_selected_sequence(self):
-        key = self.combo_sequences.currentText()
+        # Use userData for the real key
+        key = self.combo_sequences.currentData()
+        if not key: 
+            # Fallback if userData is missing (first load or custom keys)
+            key = self.combo_sequences.currentText()
+            # If map was used, reverse lookup (fragile) or just rely on userData
+            # Actually currentData() should work if set properly.
+        
         if not key: return
         
         items = self.prompts_data.get("sequences", {}).get(key, [])
@@ -925,12 +1285,12 @@ class EditorPage(QWidget):
 
     def show_item_details(self, item):
         data = item.data(Qt.ItemDataRole.UserRole)
-        self.lbl_item_type.setText(f"Type: {data.get('type')}")
+        self.lbl_item_type.setText(f"类型：{data.get('type')}")
         content = data.get('key') or data.get('content')
-        self.lbl_item_key.setText(f"Key/Content:\n{content}")
+        self.lbl_item_key.setText(f"键/内容：\n{content}")
 
     def save_sequence_order(self):
-        key = self.combo_sequences.currentText()
+        key = self.combo_sequences.currentData()
         if not key: return
         
         new_list = []
@@ -945,39 +1305,39 @@ class EditorPage(QWidget):
         try:
             with open("assets/prompts.json", "w", encoding="utf-8") as f:
                 json.dump(self.prompts_data, f, indent=4, ensure_ascii=False)
-            QMessageBox.information(self, "Success", f"Sequence '{key}' updated.")
+            QMessageBox.information(self, "成功", f"序列 '{key}' 已更新。")
         except Exception as e:
-            QMessageBox.critical(self, "Save Error", str(e))
+            QMessageBox.critical(self, "保存错误", str(e))
 
     # --- Shared / Tab 1 Implementation ---
     def refresh_tree(self):
         self.tree.clear()
         
         # 1. System Prompts (assets/提示词)
-        root_prompts = QTreeWidgetItem(self.tree, ["System Prompts"])
+        root_prompts = QTreeWidgetItem(self.tree, ["系统提示词"])
         root_prompts.setExpanded(True)
         self._add_files_to_tree(root_prompts, "assets/提示词")
 
         # 2. World Setting (assets/世界设定)
-        root_world = QTreeWidgetItem(self.tree, ["World Setting"])
+        root_world = QTreeWidgetItem(self.tree, ["世界设定"])
         root_world.setExpanded(True)
         self._add_files_to_tree(root_world, "assets/世界设定")
 
         # 3. User Setting (assets/用户设定)
-        root_user = QTreeWidgetItem(self.tree, ["User Setting"])
+        root_user = QTreeWidgetItem(self.tree, ["用户设定"])
         root_user.setExpanded(True)
         self._add_files_to_tree(root_user, "assets/用户设定")
 
         # 4. NPCs
-        root_npc = QTreeWidgetItem(self.tree, ["NPCs"])
+        root_npc = QTreeWidgetItem(self.tree, ["NPC"])
         root_npc.setExpanded(True)
         
         # Generic NPCs
-        node_generic = QTreeWidgetItem(root_npc, ["Generic NPCs"])
+        node_generic = QTreeWidgetItem(root_npc, ["通用 NPC"])
         self._add_files_to_tree(node_generic, "assets/NPC人设")
         
         # Important NPCs
-        node_important = QTreeWidgetItem(root_npc, ["Important NPCs"])
+        node_important = QTreeWidgetItem(root_npc, ["重要 NPC"])
         imp_path = "assets/NPC人设/重要NPC"
         if os.path.exists(imp_path):
             for folder in os.listdir(imp_path):
@@ -1006,7 +1366,7 @@ class EditorPage(QWidget):
         else:
             # Clicked a folder item
             self.current_file_path = None
-            self.lbl_current_file.setText("Select a file to edit")
+            self.lbl_current_file.setText("选择一个文件进行编辑")
             self.txt_editor.clear()
             self.btn_save.setEnabled(False)
 
@@ -1016,7 +1376,7 @@ class EditorPage(QWidget):
                 content = f.read()
             
             self.current_file_path = file_path
-            self.lbl_current_file.setText(f"Editing: {file_path}")
+            self.lbl_current_file.setText(f"正在编辑：{file_path}")
             self.txt_editor.setText(content)
             self.btn_save.setEnabled(True)
             
@@ -1043,7 +1403,7 @@ class EditorPage(QWidget):
                 f.write(content)
             
             # Flash status or message
-            self.lbl_current_file.setText(f"Saved: {self.current_file_path} (Last saved: {QDateTime.currentDateTime().toString('HH:mm:ss')})")
+            self.lbl_current_file.setText(f"已保存：{self.current_file_path} (Last saved: {QDateTime.currentDateTime().toString('HH:mm:ss')})")
             
         except Exception as e:
             QMessageBox.critical(self, "Save Error", str(e))
@@ -1064,12 +1424,12 @@ class MemoryPage(QWidget):
         
         # Header
         header = QHBoxLayout()
-        lbl_title = QLabel("Memory Review (Story Summaries)")
+        lbl_title = QLabel("记忆回顾 (故事总结)")
         lbl_title.setStyleSheet("font-size: 24px; font-weight: bold; color: white;")
         header.addWidget(lbl_title)
         header.addStretch()
         
-        btn_back = QPushButton("Back")
+        btn_back = QPushButton("返回")
         btn_back.clicked.connect(self.back_signal.emit)
         btn_back.setFixedSize(100, 40)
         header.addWidget(btn_back)
@@ -1080,7 +1440,7 @@ class MemoryPage(QWidget):
         content_layout = QHBoxLayout()
         
         # Left: Big Summary
-        group_big = QGroupBox("The Story So Far (Big Summary)")
+        group_big = QGroupBox("目前的故事 (大总结)")
         group_big.setStyleSheet("QGroupBox { color: white; font-weight: bold; }")
         layout_big = QVBoxLayout()
         self.txt_big = QTextEdit()
@@ -1090,7 +1450,7 @@ class MemoryPage(QWidget):
         group_big.setLayout(layout_big)
         
         # Right: Small Summaries
-        group_small = QGroupBox("Recent Events (Small Summaries)")
+        group_small = QGroupBox("近期事件 (小总结)")
         group_small.setStyleSheet("QGroupBox { color: white; font-weight: bold; }")
         layout_small = QVBoxLayout()
         self.txt_small = QTextEdit()
@@ -1170,7 +1530,7 @@ class GamePage(QWidget):
         # Top Bar on Text Frame (for Auto button)
         tf_top_bar = QHBoxLayout()
         tf_top_bar.addStretch()
-        self.btn_auto = QPushButton("Auto")
+        self.btn_auto = QPushButton("自动")
         self.btn_auto.setCheckable(True)
         self.btn_auto.setStyleSheet("""
             QPushButton { background-color: #333; color: white; border: 1px solid #555; padding: 5px 10px; border-radius: 5px; }
@@ -1195,7 +1555,7 @@ class GamePage(QWidget):
         d_layout.addWidget(self.text_frame)
         
         self.input_field = QLineEdit()
-        self.input_field.setPlaceholderText("Type your response here...")
+        self.input_field.setPlaceholderText("在此输入回复...")
         self.input_field.setStyleSheet("background-color: rgba(255, 255, 255, 0.95); border: 2px solid #888; border-radius: 5px; padding: 5px 10px; font-size: 20px; color: black;")
         self.input_field.returnPressed.connect(self.handle_input)
         d_layout.addWidget(self.input_field)
@@ -1215,19 +1575,19 @@ class GamePage(QWidget):
         
         btn_style = "QPushButton { background-color: rgba(0, 0, 0, 0.6); color: white; border: 1px solid #888; border-radius: 5px; padding: 5px 15px; font-size: 16px; } QPushButton:hover { background-color: rgba(50, 50, 50, 0.9); border-color: white; }"
         
-        self.btn_config = QPushButton("Settings")
+        self.btn_config = QPushButton("设置")
         self.btn_config.setStyleSheet(btn_style)
         self.btn_config.clicked.connect(self.config_signal.emit)
         
-        self.btn_memory = QPushButton("Memory")
+        self.btn_memory = QPushButton("记忆")
         self.btn_memory.setStyleSheet(btn_style)
         self.btn_memory.clicked.connect(self.memory_signal.emit)
 
-        self.btn_sl = QPushButton("Save/Load")
+        self.btn_sl = QPushButton("存档/读档")
         self.btn_sl.setStyleSheet(btn_style)
         self.btn_sl.clicked.connect(self.save_load_signal.emit)
         
-        self.btn_exit = QPushButton("Exit")
+        self.btn_exit = QPushButton("退出")
         self.btn_exit.setStyleSheet(btn_style)
         self.btn_exit.clicked.connect(self.save_exit_signal.emit)
         
@@ -1321,12 +1681,12 @@ class DebugPage(QWidget):
         
         # Header
         header = QHBoxLayout()
-        lbl_title = QLabel("Debug Console (Test Instructions)")
+        lbl_title = QLabel("调试控制台 (测试指令)")
         lbl_title.setStyleSheet("font-size: 18px; font-weight: bold;")
         header.addWidget(lbl_title)
         header.addStretch()
         
-        btn_back = QPushButton("Back")
+        btn_back = QPushButton("返回")
         btn_back.clicked.connect(self.on_back)
         header.addWidget(btn_back)
         self.layout.addLayout(header)
@@ -1348,7 +1708,7 @@ class DebugPage(QWidget):
         self.layout.addWidget(self.view, stretch=3)
         
         # Text Output Overlay (Simple Label)
-        self.lbl_output = QLabel("Output text will appear here...")
+        self.lbl_output = QLabel("输出文本将显示在这里...")
         self.lbl_output.setStyleSheet("background-color: rgba(0,0,0,0.5); color: white; padding: 10px; font-size: 16px;")
         self.lbl_output.setWordWrap(True)
         self.layout.addWidget(self.lbl_output)
@@ -1356,10 +1716,10 @@ class DebugPage(QWidget):
         # Input Area
         input_layout = QHBoxLayout()
         self.txt_input = QTextEdit()
-        self.txt_input.setPlaceholderText("Enter instructions here... (e.g. Hello [fg-chiguo-happy] [Sprite-chiguo-pos_center])")
+        self.txt_input.setPlaceholderText("在此输入指令... (e.g. Hello [fg-chiguo-happy] [Sprite-chiguo-pos_center])")
         self.txt_input.setMaximumHeight(80)
         
-        btn_run = QPushButton("Run / Send")
+        btn_run = QPushButton("运行 / 发送")
         btn_run.setFixedSize(100, 80)
         btn_run.clicked.connect(self.run_instruction)
         

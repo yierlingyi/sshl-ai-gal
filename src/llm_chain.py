@@ -36,6 +36,9 @@ class LLMChain:
         self.model_logic = self.config.get("model_logic", "gpt-4")
         
         self.memory = MemoryManager()
+        # Set threshold from config (default 5 if not in config, but pages.py defaults to 5)
+        self.memory.plot_planning_threshold = self.config.get("plot_planning_freq", 5)
+        
         self.assembler = PromptAssembler(self.memory)
         self.planner = PlotPlanner()
         
@@ -149,13 +152,22 @@ class LLMChain:
         """
         triggers = self.memory.check_for_triggers()
         
+        # We handle tasks sequentially or check "is_blocking" before starting new ones.
+        # Ideally, we should queue them or launch them.
+        # Since _retry_loop sets is_blocking, we must be careful not to launch parallel blocking tasks 
+        # unless they are coordinated.
+        # For simplicity, we prioritize Small Summary -> Big Summary -> Plot Planning.
+        
+        if self.is_blocking:
+            return
+
         if triggers["needs_small_summary"]:
             msgs = self.memory.consume_raw_history()
             if msgs: 
-                # Mark blocking immediately before starting task
                 self.is_blocking = True
                 self.block_reason = "Generating Small Summary..."
                 asyncio.create_task(self._generate_small_summary(msgs))
+            return # Exit to avoid starting multiple tasks at once
             
         if triggers["needs_big_summary"]:
             smalls_to_merge = self.memory.consume_small_summaries_for_big_merge()
@@ -163,6 +175,12 @@ class LLMChain:
                 self.is_blocking = True
                 self.block_reason = "Generating Big Summary..."
                 asyncio.create_task(self._generate_big_summary(smalls_to_merge))
+            return
+
+        if triggers["needs_plot_planning"]:
+            self.is_blocking = True
+            self.block_reason = "Generating Plot Guidance..."
+            asyncio.create_task(self._run_architect_task())
 
     async def _generate_small_summary(self, messages: List[Dict[str, str]]):
         print("[Background] Generating Small Summary...")
@@ -185,25 +203,9 @@ class LLMChain:
             self.memory.append_small_summary(summary)
             print(f"[Background] Small Summary Added.")
         finally:
-            # Unblock only if successful (loop ensures success or indefinite wait)
-            # Actually, _retry_loop with critical=True never returns/raises until success.
-            # But if we had logic errors... 
-            # We should only unblock if this was the ONLY blocking task?
-            # For simplicity, assume serial execution of critical tasks or use a counter.
-            # Using boolean is risky if race conditions. But here we assume one flow.
-            # Re-check triggers to see if we chain into Big Summary.
-            
-            triggers = self.memory.check_for_triggers()
-            if triggers["needs_big_summary"]:
-                 # Chain directly
-                 smalls_to_merge = self.memory.consume_small_summaries_for_big_merge()
-                 if smalls_to_merge:
-                    self.block_reason = "Generating Big Summary..."
-                    await self._generate_big_summary(smalls_to_merge) # Await it since we are already in async task
-                 else:
-                    self.is_blocking = False
-            else:
-                 self.is_blocking = False
+            # Unblock and re-check triggers (chaining)
+            self.is_blocking = False
+            self._handle_background_tasks()
 
     async def _generate_big_summary(self, smalls_list: List[str]):
         print("[Background] Generating Big Summary...")
@@ -227,16 +229,17 @@ class LLMChain:
             self.memory.update_big_summary(new_big)
             print(f"[Background] Big Summary Updated.")
             
-            # Trigger Architect (Planner) - Also Critical?
-            # User said "which step fails... pause". 
-            # Plot Planning is distinct. If it fails, do we block?
-            # User listed <guide> tag. 
-            self.block_reason = "Generating Plot Guidance..."
-            await self._run_architect()
-            
         finally:
-             # If we are here, Big Summary and Architect succeeded (since they are awaited critical loops)
              self.is_blocking = False
+             self._handle_background_tasks()
+
+    async def _run_architect_task(self):
+        try:
+            await self._run_architect()
+        finally:
+            self.is_blocking = False
+            # Plot planning resets its own counter, so loop should naturally stop triggering it
+            self._handle_background_tasks()
 
     async def _run_architect(self):
         print("[Background] Running Architect (Plot Planner)...")

@@ -41,10 +41,10 @@ python -m src.frontend.main_window
 ## 4. 扩展指南
 
 ### 自定义 Prompt 结构
-1.  进入游戏 -> Editor (Dev)。
-2.  切换到 "Prompt Sequences" 标签。
-3.  选择功能模块（如 `storyteller`），拖拽调整提示词顺序或查看内容。
+1.  进入游戏 -> 编辑器 (开发)。
+2.  切换到 "提示词序列" 标签。
+3.  选择功能模块（如 `故事生成 (Storyteller)`），拖拽调整提示词顺序或查看内容。
 4.  点击保存，立即生效。
 
 ### 接入不同模型
-在 **Config** 页面，为 Story, Summary, Logic 分别设置不同的 Base URL 和 API Key。例如，用更聪明的模型（如 GPT-4）做 Logic/Summary，用更便宜快速的模型做 Story。
+在 **设置** 页面，为 Story, Summary, Logic 分别设置不同的 Base URL 和 API Key。例如，用更聪明的模型（如 GPT-4）做 Logic/Summary，用更便宜快速的模型做 Story。

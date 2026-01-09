@@ -9,6 +9,9 @@ class GameState:
     date: str = "2026-01-06"
     favorability: Dict[str, int] = field(default_factory=dict)
     inventory: List[str] = field(default_factory=list)
+    current_bgm: str = "None"
+    current_bg: str = "None"
+    visible_characters: Dict[str, str] = field(default_factory=dict) # Name -> Expression/Face
 
 class MemoryManager:
     def __init__(self):
@@ -29,6 +32,7 @@ class MemoryManager:
         # Counters
         self.global_layer_count = 0
         self.last_summary_layer = 0
+        self.small_summary_count_since_plan = 0
         
         # Configuration
         self.raw_history_limit = 20
@@ -36,6 +40,7 @@ class MemoryManager:
         
         self.small_summary_threshold_for_big = 10
         self.small_summary_buffer_size = 3
+        self.plot_planning_threshold = 5 # Default, can be updated
         
         self._observers = []
         
@@ -44,6 +49,7 @@ class MemoryManager:
         self.path_summary_small = "assets/剧情总结/小总结.json"
         self.path_history = "assets/剧情总结/未总结内容.json"
         self.path_plot_plan = "assets/剧情规划存储/当前规划.txt"
+        self.path_gamestate = "assets/gamestate.json"
         
         self._load_persistent_data()
 
@@ -54,6 +60,15 @@ class MemoryManager:
         return "\n\n".join(self.big_summary_storage.values())
 
     def _load_persistent_data(self):
+        # Load GameState
+        if os.path.exists(self.path_gamestate):
+            try:
+                with open(self.path_gamestate, 'r', encoding='utf-8') as f:
+                    state_data = json.load(f)
+                    self.state = GameState(**state_data)
+            except Exception as e:
+                print(f"[MemoryManager] Failed to load gamestate: {e}")
+
         # Load Big Summary
         if os.path.exists(self.path_summary_big):
             try:
@@ -88,6 +103,7 @@ class MemoryManager:
                 with open(self.path_history, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     self.global_layer_count = data.get("current_layer", 0)
+                    self.small_summary_count_since_plan = data.get("small_summary_count_since_plan", 0)
                     history_map = data.get("history", {})
                     
                     self.raw_history = []
@@ -109,6 +125,14 @@ class MemoryManager:
                     self.plot_guidance = [line.strip() for line in content.split('\n') if line.strip()]
 
     def _save_persistent_data(self):
+        # Save GameState
+        try:
+            os.makedirs(os.path.dirname(self.path_gamestate), exist_ok=True)
+            with open(self.path_gamestate, 'w', encoding='utf-8') as f:
+                json.dump(self.state.__dict__, f, indent=4, ensure_ascii=False)
+        except Exception as e:
+            print(f"[MemoryManager] Failed to save gamestate: {e}")
+
         # Save Big Summary
         os.makedirs(os.path.dirname(self.path_summary_big), exist_ok=True)
         with open(self.path_summary_big, 'w', encoding='utf-8') as f:
@@ -138,7 +162,6 @@ class MemoryManager:
              pairs.append(current_pair)
 
         # Calculate start layer ID for the current buffer
-        # Assuming the buffer ends at global_layer_count (roughly)
         start_layer = self.global_layer_count - len(pairs) + 1
         if start_layer < 1: start_layer = 1 
         
@@ -148,6 +171,7 @@ class MemoryManager:
             
         history_data = {
             "current_layer": self.global_layer_count,
+            "small_summary_count_since_plan": self.small_summary_count_since_plan,
             "history": history_map
         }
         
@@ -221,6 +245,9 @@ class MemoryManager:
             
         if len(self.small_summaries) >= self.small_summary_threshold_for_big + self.small_summary_buffer_size:
             triggers["needs_big_summary"] = True
+            
+        if self.small_summary_count_since_plan >= self.plot_planning_threshold:
+            triggers["needs_plot_planning"] = True
         
         return triggers
         
@@ -257,8 +284,16 @@ class MemoryManager:
         self.last_summary_layer = end_layer
         
         self.small_summaries.append({"range": range_str, "content": summary})
+        
+        # Increment counter for plot planning
+        self.small_summary_count_since_plan += 1
+        
         self._save_persistent_data()
         self._notify_observers()
+    
+    def reset_plot_plan_counter(self):
+        self.small_summary_count_since_plan = 0
+        self._save_persistent_data()
         
     def update_big_summary(self, summary: str):
         """Callback when big summary is generated."""
@@ -271,6 +306,11 @@ class MemoryManager:
 
     def update_plot_guidance(self, guidance: List[str]):
         self.plot_guidance = guidance
+        self.reset_plot_plan_counter() # Reset counter after update
+        self._save_persistent_data()
+
+    def save_gamestate(self):
+        """Public method to trigger persistence (e.g. after direct state modification)."""
         self._save_persistent_data()
 
     def to_dict(self) -> Dict[str, Any]:

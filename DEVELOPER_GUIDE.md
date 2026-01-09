@@ -70,14 +70,33 @@ root/
     3.  确保 `assets/sound_map.json` 中的键是中文描述（如 "大雨1"）。
     4.  游戏中使用: `[sound-大雨1-0]`。使用 `[StopSound]` 停止所有音效。
 
+### E. 状态管理 (`assets/gamestate.json`)
+*   **用途:** 存储跨回合持久化的游戏变量，如当前日期、角色好感度。
+*   **数据结构:**
+    ```json
+    {
+        "date": "2026-01-06",
+        "favorability": { "name": 10 },
+        "inventory": [],
+        "current_bgm": "TrackName",
+        "current_bg": "BackgroundName",
+        "visible_characters": { "name": "expression" }
+    }
+    ```
+*   **交互:** 
+    *   通过 `[日期-xxx]` 和 `[Name-好感-+x]` 指令动态更新。
+    *   `MemoryManager` 负责自动加载与保存。
+    *   `PromptAssembler` 负责将其转化为 AI 可理解的上下文（支持 `{game_state_dump}` 标签）。
+
 ## 4. 提示词系统 (Prompt System)
 
 系统采用高度可配置的提示词组装机制。
 
 *   **配置**: `assets/prompts.json` 定义了所有提示词文件的路径 (`file_map`) 和各个 AI 功能的组装顺序 (`sequences`)。
-*   **编辑**: 在游戏主菜单点击 **Editor (Dev)** 进入 **Universal Prompt Editor**。
-    *   **Resource Files**: 直接编辑提示词文本、世界观、NPC 设定。
-    *   **Prompt Sequences**: 拖拽调整提示词的拼接顺序。
+*   **编辑**: 在游戏主菜单点击 **编辑器 (开发)** 进入 **通用提示词编辑器**。
+    *   **资源文件**: 直接编辑提示词文本、世界观、NPC 设定。
+    *   **提示词序列**: 拖拽调整提示词的拼接顺序。
+    *   **动态标签**: 支持 `{game_state_dump}` 等标签以注入实时数据。
 
 ## 5. 开发工具
 

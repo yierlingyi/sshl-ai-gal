@@ -1,0 +1,29 @@
+{
+    "meta": {
+        "date": "2026-01-09 12:21:12",
+        "summary": "The story has just begun...."
+    },
+    "game_state": {
+        "raw_history": [],
+        "small_summaries": [],
+        "big_summary": {},
+        "plot_guidance": [
+            "No specific guidance."
+        ],
+        "state": {
+            "date": "2026-01-06",
+            "favorability": {
+                "moxiaoju": 0,
+                "luoyan": 0,
+                "chiguo": 0,
+                "chiyao": 0,
+                "citou": 0,
+                "ding": 0,
+                "lin": 0,
+                "moshu": 0
+            },
+            "inventory": []
+        },
+        "global_layer_count": 0
+    }
+}

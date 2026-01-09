@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
     
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("LLM-Galgame-Engine")
+        self.setWindowTitle("LLM-Galgame-Engine (LLM Galgame 引擎)")
         self.resize(1280, 720)
         
         # 1. Managers
@@ -233,7 +233,7 @@ class MainWindow(QMainWindow):
             if state_data:
                 self.backend.memory.load_from_dict(state_data)
                 # Refresh UI
-                self.page_game.set_text("System", "Game Loaded.")
+                self.page_game.set_text("系统", "游戏已读取。")
                 self.on_memory_updated()
                 self.switch_to(3) # Go to Game
                 

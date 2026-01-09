@@ -7,6 +7,7 @@
         "user_config": "assets/用户设定/用户配置.txt",
         "unsummarized_guide": "assets/提示词/未总结内容_引导.txt",
         "director_base": "assets/提示词/指令加入_导演.txt",
+        "current_state": "assets/提示词/当前状态.txt",
         "planner_base": "assets/提示词/剧情规划_提示词.txt",
         "summary_big_base": "assets/提示词/总结_大.txt",
         "summary_small_base": "assets/提示词/总结_小.txt"
@@ -15,30 +16,34 @@
         "storyteller": [
             {"type": "file", "key": "story_base"},
             {"type": "file", "key": "story_style"},
-            {"type": "text", "content": "\n# World Setting\n"},
-            {"type": "file", "key": "world_view"},
+            {"type": "dynamic", "key": "world_context"},
             {"type": "text", "content": "\n# User Settings\n"},
             {"type": "file", "key": "user_config"},
             {"type": "file", "key": "user_persona"},
             {"type": "text", "content": "\n# Plot Guidance\n"},
             {"type": "dynamic", "key": "plot_guidance"},
+            {"type": "dynamic", "key": "affection_context"},
             {"type": "text", "content": "\n# Story Summaries\n"},
             {"type": "dynamic", "key": "big_summary"},
             {"type": "text", "content": "\n## Recent Events\n"},
             {"type": "dynamic", "key": "small_summaries"},
-            {"type": "text", "content": "\n# NPC Profiles\n"},
             {"type": "dynamic", "key": "npcs"},
             {"type": "file", "key": "unsummarized_guide"},
             {"type": "dynamic", "key": "history"}
         ],
         "director": [
             {"type": "file", "key": "director_base"},
+            {"type": "file", "key": "current_state"},
             {"type": "text", "content": "\n\n**System Update - Available Music:**\n"},
             {"type": "dynamic", "key": "available_music"},
             {"type": "text", "content": "\n\n**System Update - Available Sounds:**\n"},
             {"type": "dynamic", "key": "available_sounds"}
         ],
         "planner": [
+            {"type": "dynamic", "key": "world_context"},
+            {"type": "dynamic", "key": "big_summary"},
+            {"type": "dynamic", "key": "npcs"},
+            {"type": "dynamic", "key": "affection_context"},
             {"type": "file", "key": "planner_base"}
         ],
         "summary_big": [
