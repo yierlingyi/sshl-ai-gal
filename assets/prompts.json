@@ -14,43 +14,98 @@
     },
     "sequences": {
         "storyteller": [
-            {"type": "file", "key": "story_base"},
-            {"type": "file", "key": "story_style"},
-            {"type": "dynamic", "key": "world_context"},
-            {"type": "text", "content": "\n# User Settings\n"},
-            {"type": "file", "key": "user_config"},
-            {"type": "file", "key": "user_persona"},
-            {"type": "text", "content": "\n# Plot Guidance\n"},
-            {"type": "dynamic", "key": "plot_guidance"},
-            {"type": "dynamic", "key": "affection_context"},
-            {"type": "text", "content": "\n# Story Summaries\n"},
-            {"type": "dynamic", "key": "big_summary"},
-            {"type": "text", "content": "\n## Recent Events\n"},
-            {"type": "dynamic", "key": "small_summaries"},
-            {"type": "dynamic", "key": "npcs"},
-            {"type": "file", "key": "unsummarized_guide"},
-            {"type": "dynamic", "key": "history"}
+            {
+                "type": "file",
+                "key": "story_base"
+            },
+            {
+                "type": "file",
+                "key": "story_style"
+            },
+            {
+                "type": "file",
+                "key": "world_view"
+            },
+            {
+                "type": "dynamic",
+                "key": "plot_guidance"
+            },
+            {
+                "type": "dynamic",
+                "key": "affection_context"
+            },
+            {
+                "type": "dynamic",
+                "key": "big_summary"
+            },
+            {
+                "type": "dynamic",
+                "key": "small_summaries"
+            },
+            {
+                "type": "dynamic",
+                "key": "history"
+            }
         ],
         "director": [
-            {"type": "file", "key": "director_base"},
-            {"type": "file", "key": "current_state"},
-            {"type": "text", "content": "\n\n**System Update - Available Music:**\n"},
-            {"type": "dynamic", "key": "available_music"},
-            {"type": "text", "content": "\n\n**System Update - Available Sounds:**\n"},
-            {"type": "dynamic", "key": "available_sounds"}
+            {
+                "type": "file",
+                "key": "director_base"
+            },
+            {
+                "type": "dynamic",
+                "key": "current_state"
+            },
+            {
+                "type": "dynamic",
+                "key": "story_output"
+            }
         ],
         "planner": [
-            {"type": "dynamic", "key": "world_context"},
-            {"type": "dynamic", "key": "big_summary"},
-            {"type": "dynamic", "key": "npcs"},
-            {"type": "dynamic", "key": "affection_context"},
-            {"type": "file", "key": "planner_base"}
+            {
+                "type": "file",
+                "key": "planner_base"
+            },
+            {
+                "type": "file",
+                "key": "world_view"
+            },
+            {
+                "key": "date_guidance",
+                "type": "dynamic"
+            },
+            {
+                "type": "dynamic",
+                "key": "big_summary"
+            },
+            {
+                "type": "dynamic",
+                "key": "small_summaries"
+            },
+            {
+                "type": "dynamic",
+                "key": "affection_context"
+            }
         ],
         "summary_big": [
-            {"type": "file", "key": "summary_big_base"}
+            {
+                "type": "file",
+                "key": "summary_big_base"
+            },
+            {
+                "type": "dynamic",
+                "key": "to_summarize"
+            }
         ],
         "summary_small": [
-            {"type": "file", "key": "summary_small_base"}
+            {
+                "type": "file",
+                "key": "summary_small_base"
+            },
+            {
+                "type": "dynamic",
+                "key": "to_summarize"
+            }
         ]
     }
 }

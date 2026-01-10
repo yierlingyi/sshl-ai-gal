@@ -102,7 +102,7 @@ class LLMChain:
         )
 
     async def run_director(self, story_text: str) -> str:
-        system_prompt = self.assembler.assemble_prompt("director")
+        system_prompt = self.assembler.assemble_prompt("director", story_text=story_text)
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"Add stage directions to this text:\n\n{story_text}"}
@@ -185,10 +185,10 @@ class LLMChain:
     async def _generate_small_summary(self, messages: List[Dict[str, str]]):
         print("[Background] Generating Small Summary...")
         text_block = "\n".join([f"{m['role']}: {m['content']}" for m in messages])
-        system_prompt = self.assembler.assemble_prompt("summary_small")
+        system_prompt = self.assembler.assemble_prompt("summary_small", to_summarize=text_block)
         prompt = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": text_block}
+            {"role": "user", "content": "Please generate the summary now based on the instructions and content above."}
         ]
         
         try:
@@ -211,10 +211,14 @@ class LLMChain:
         print("[Background] Generating Big Summary...")
         current_big = self.memory.big_summary
         smalls_text = "\n".join(smalls_list)
-        system_prompt = self.assembler.assemble_prompt("summary_big")
+        
+        # Combine old summary and new events for the to_summarize block
+        combined_content = f"OLD SUMMARY:\n{current_big}\n\nNEW EVENTS TO MERGE:\n{smalls_text}"
+        
+        system_prompt = self.assembler.assemble_prompt("summary_big", to_summarize=combined_content)
         prompt = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Old Summary:\n{current_big}\n\nNew Events:\n{smalls_text}"}
+            {"role": "user", "content": "Please generate the updated big summary now."}
         ]
         
         try:

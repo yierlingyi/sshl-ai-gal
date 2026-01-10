@@ -36,7 +36,7 @@ class MemoryManager:
         
         # Configuration
         self.raw_history_limit = 20
-        self.raw_history_buffer_size = 5
+        self.raw_history_buffer_size = 3
         
         self.small_summary_threshold_for_big = 10
         self.small_summary_buffer_size = 3
@@ -320,7 +320,9 @@ class MemoryManager:
             "big_summary": self.big_summary_storage,
             "plot_guidance": self.plot_guidance,
             "state": self.state.__dict__,
-            "global_layer_count": self.global_layer_count
+            "global_layer_count": self.global_layer_count,
+            "last_summary_layer": self.last_summary_layer,
+            "small_summary_count_since_plan": self.small_summary_count_since_plan
         }
 
     def load_from_dict(self, data: Dict[str, Any]):
@@ -347,3 +349,5 @@ class MemoryManager:
         state_data = data.get("state", {})
         self.state = GameState(**state_data)
         self.global_layer_count = data.get("global_layer_count", 0)
+        self.last_summary_layer = data.get("last_summary_layer", 0)
+        self.small_summary_count_since_plan = data.get("small_summary_count_since_plan", 0)

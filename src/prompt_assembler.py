@@ -166,7 +166,7 @@ class PromptAssembler:
         
         return f"# World Setting & Current Timeline\n{world_base}\n\n## Timeline Context\n{date_info}"
 
-    def _get_dynamic_content(self, key: str) -> str:
+    def _get_dynamic_content(self, key: str, **kwargs) -> str:
         """Resolves dynamic keys to actual content."""
         if key == "plot_guidance":
             return self.memory.get_plot_guidance()
@@ -180,19 +180,84 @@ class PromptAssembler:
         elif key == "affection_context":
             return self._get_affection_context()
 
-        elif key == "game_state_dump":
+        elif key == "date_guidance":
+            date_str = self.memory.state.date
+            try:
+                dt = datetime.strptime(date_str, "%Y-%m-%d")
+                # Assuming start date 2026-01-06 is Day 1.
+                start_date = datetime(2026, 1, 6)
+                delta = (dt - start_date).days + 1
+                day_label = f"Day {delta}"
+                
+                for item in self.date_guidance:
+                    if item.get("date") == day_label or item.get("date") == date_str:
+                         return f"# Special Date Guidance ({day_label})\n{item.get('outline', '')}"
+                
+                return "" # Return empty if no specific guidance to reduce noise
+            except:
+                return ""
+
+        elif key == "current_state":
+            # 1. Game State (Visual/Audio)
             s = self.memory.state
-            lines = ["# Current Game State (Visual/Audio)"]
+            lines = ["# Current Game State"]
             lines.append(f"- Date: {s.date}")
-            lines.append(f"- BGM: {s.current_bgm}")
-            lines.append(f"- Background: {s.current_bg}")
+            lines.append(f"- Current BGM: {s.current_bgm}")
+            lines.append(f"- Current SFX: {s.current_sfx if hasattr(s, 'current_sfx') else 'None'}")
+            lines.append(f"- Current Background: {s.current_bg}")
+            
+            # Sprites
             if s.visible_characters:
                 lines.append("- Visible Characters:")
                 for name, face in s.visible_characters.items():
                     lines.append(f"  * {name} (Expression: {face})")
             else:
                 lines.append("- Visible Characters: None")
+            
+            lines.append("")
+            
+            # 2. Presets (Sprite Positions)
+            lines.append("# Sprite Preset Positions")
+            try:
+                with open("assets/presets.json", "r", encoding="utf-8") as f:
+                    presets = json.load(f)
+                    # List keys like "pos_center", "pos_left"
+                    p_keys = list(presets.keys())
+                    lines.append(", ".join(p_keys))
+            except:
+                lines.append("(No presets found)")
+            
+            lines.append("")
+
+            # 3. Available Music
+            lines.append("# Available Music List")
+            try:
+                with open("assets/registry.json", "r", encoding="utf-8") as f:
+                    registry = json.load(f)
+                    music_list = [m['name'] for m in registry.get("music", [])]
+                    lines.append(", ".join(music_list))
+            except:
+                lines.append("(No music found)")
+            
+            lines.append("")
+
+            # 4. Available Sounds
+            lines.append("# Available SFX List")
+            try:
+                with open("assets/sound_map.json", "r", encoding="utf-8") as f:
+                    sound_map = json.load(f)
+                    sfx_list = list(sound_map.keys())
+                    lines.append(", ".join(sfx_list))
+            except:
+                lines.append("(No sounds found)")
+
             return "\n".join(lines)
+
+        elif key == "story_output":
+            return kwargs.get("story_text", "")
+
+        elif key == "to_summarize":
+            return kwargs.get("to_summarize", "")
 
         elif key == "big_summary":
             return self.memory.big_summary
@@ -218,6 +283,7 @@ class PromptAssembler:
             return "\n".join(blocks)
             
         elif key == "available_music":
+            # DEPRECATED: Merged into current_state, but kept for safety if prompt not updated yet
             try:
                 with open("assets/registry.json", "r", encoding="utf-8") as f:
                     registry = json.load(f)
@@ -226,26 +292,21 @@ class PromptAssembler:
                 return "No music available."
 
         elif key == "available_sounds":
+            # DEPRECATED: Merged into current_state
             try:
                 with open("assets/sound_map.json", "r", encoding="utf-8") as f:
                     sound_map = json.load(f)
-                    # Limit the list if too long? 1000+ sounds might overwhelm context.
-                    # Maybe provide categories or just list all?
-                    # 1000 lines is a lot.
-                    # Let's list keys.
                     keys = list(sound_map.keys())
-                    # Format as comma separated or newlines?
-                    # Newlines is clearer but longer. Comma separated saves tokens.
-                    # "大雨1, 大雨2, ..."
                     return ", ".join(keys)
             except:
                 return "No sounds available."
                 
         return ""
 
-    def assemble_prompt(self, sequence_name: str) -> str:
+    def assemble_prompt(self, sequence_name: str, **kwargs) -> str:
         """
         Assembles a single string prompt for tasks like Director, Planner, Summarizer.
+        Accepts kwargs to pass to dynamic content generators (e.g. story_text).
         """
         parts = []
         sequence = self.config.get("sequences", {}).get(sequence_name, [])
@@ -260,7 +321,7 @@ class PromptAssembler:
             elif itype == "text":
                 content = item.get("content", "")
             elif itype == "dynamic":
-                content = self._get_dynamic_content(key)
+                content = self._get_dynamic_content(key, **kwargs)
                 
             if content:
                 parts.append(content)

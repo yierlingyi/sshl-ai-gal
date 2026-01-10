@@ -30,4 +30,4 @@
 </summary_small>
 
 # Initialization
-请接收下一段对话记录并开始处理。
+请接收记录并开始处理。

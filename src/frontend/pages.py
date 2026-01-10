@@ -2,10 +2,12 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QPushButton, QLabel, QStackedWidget, 
     QLineEdit, QSlider, QGridLayout, QFrame, QHBoxLayout, QGraphicsView,
     QTabWidget, QGroupBox, QFormLayout, QComboBox, QFileDialog, QSpinBox, 
-    QCheckBox, QTextEdit, QInputDialog, QDoubleSpinBox, QGraphicsProxyWidget
+    QCheckBox, QTextEdit, QInputDialog, QDoubleSpinBox, QGraphicsProxyWidget,
+    QMessageBox, QHeaderView, QListWidget, QListWidgetItem, QAbstractItemView, 
+    QTableWidget, QTableWidgetItem, QSplitter, QTreeWidget, QTreeWidgetItem
 )
 from PySide6.QtCore import Qt, Signal, QDateTime
-from PySide6.QtGui import QPixmap, QFontDatabase, QFont, QPainter
+from PySide6.QtGui import QPixmap, QFontDatabase, QFont, QPainter, QColor
 import json
 import os
 import shutil
@@ -1185,7 +1187,7 @@ class EditorPage(QWidget):
         left_layout = QVBoxLayout()
         
         l_header = QHBoxLayout()
-        l_header.addWidget(QLabel("选择功能："))
+        l_header.addWidget(QLabel("选择功能 (Sequence)："))
         self.combo_sequences = QComboBox()
         self.combo_sequences.currentIndexChanged.connect(self.load_selected_sequence)
         l_header.addWidget(self.combo_sequences)
@@ -1193,6 +1195,15 @@ class EditorPage(QWidget):
         
         self.list_sequence = QListWidget()
         self.list_sequence.setDragDropMode(QAbstractItemView.DragDropMode.InternalMove)
+        self.list_sequence.setStyleSheet("""
+            QListWidget {
+                font-size: 14px;
+            }
+            QListWidget::item {
+                border-bottom: 1px solid #ddd;
+                padding: 5px;
+            }
+        """)
         left_layout.addWidget(self.list_sequence)
         
         btn_layout = QHBoxLayout()
@@ -1208,7 +1219,7 @@ class EditorPage(QWidget):
         layout.addLayout(left_layout, stretch=2)
         
         # Right: Item Details (Read-only for now, mainly context)
-        right_group = QGroupBox("Selected Item Details")
+        right_group = QGroupBox("选中项详情 (Details)")
         right_layout = QVBoxLayout()
         self.lbl_item_type = QLabel("类型：-")
         self.lbl_item_key = QLabel("键/内容：-")
@@ -1221,6 +1232,57 @@ class EditorPage(QWidget):
         layout.addWidget(right_group, stretch=1)
         
         self.list_sequence.itemClicked.connect(self.show_item_details)
+
+    def resolve_preview(self, item_data):
+        """
+        Helper to resolve preview content and friendly name for list items.
+        Returns (friendly_name, preview_text)
+        """
+        itype = item_data.get("type")
+        key = item_data.get("key")
+        content = item_data.get("content")
+        
+        preview = ""
+        name_display = key if key else "Unknown"
+        
+        if itype == "file":
+            # Resolve file path from file_map
+            file_path = None
+            if self.prompts_data and "file_map" in self.prompts_data:
+                file_path = self.prompts_data["file_map"].get(key)
+            
+            if file_path and os.path.exists(file_path):
+                name_display = os.path.basename(file_path) # Show filename (usually Chinese)
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        preview = f.read(200).replace("\n", " ") + "..."
+                except:
+                    preview = "(无法读取文件)"
+            else:
+                preview = f"(文件路径未找到: {key})"
+                
+        elif itype == "text":
+            name_display = "纯文本块"
+            preview = content.replace("\n", " ")[:100] + "..." if content else ""
+            
+        elif itype == "dynamic":
+            map_dynamic = {
+                "world_context": "世界观 (World)",
+                "plot_guidance": "剧情指导 (Guidance)",
+                "affection_context": "好感度 (Affection)",
+                "big_summary": "长期记忆 (Big Summary)",
+                "small_summaries": "短期记忆 (Small Summary)",
+                "npcs": "场景 NPC",
+                "available_music": "BGM 列表",
+                "available_sounds": "SFX 列表",
+                "history": "对话历史 (History)",
+                "user_config": "用户设置",
+                "user_persona": "用户人设"
+            }
+            name_display = map_dynamic.get(key, key)
+            preview = "(运行时自动生成)"
+            
+        return name_display, preview
 
     def refresh_sequences(self):
         self.prompts_data = {}
@@ -1265,22 +1327,40 @@ class EditorPage(QWidget):
         if not key: 
             # Fallback if userData is missing (first load or custom keys)
             key = self.combo_sequences.currentText()
-            # If map was used, reverse lookup (fragile) or just rely on userData
-            # Actually currentData() should work if set properly.
         
         if not key: return
         
         items = self.prompts_data.get("sequences", {}).get(key, [])
-        
         self.list_sequence.clear()
+        
+        type_map = {
+            "file": "📁 文件",
+            "text": "📝 文本",
+            "dynamic": "⚙️ 动态"
+        }
+        
         for item_data in items:
             itype = item_data.get("type", "unknown")
-            ikey = item_data.get("key") or item_data.get("content", "")[:20] + "..."
+            name, preview = self.resolve_preview(item_data)
+            type_str = type_map.get(itype, itype.upper())
             
-            display_text = f"[{itype.upper()}] {ikey}"
+            # Construct Display Text
+            display_text = f"{type_str}  |  {name}"
+            # Add preview on next line
+            display_text += f"\n      {preview}"
             
             list_item = QListWidgetItem(display_text)
             list_item.setData(Qt.ItemDataRole.UserRole, item_data)
+            list_item.setFont(QFont("Microsoft YaHei", 10))
+            
+            # Color coding
+            if itype == "file":
+                list_item.setBackground(QColor("#E8F5E9")) # Light Green
+            elif itype == "text":
+                list_item.setBackground(QColor("#FFF3E0")) # Light Orange
+            elif itype == "dynamic":
+                list_item.setBackground(QColor("#E3F2FD")) # Light Blue
+
             self.list_sequence.addItem(list_item)
 
     def show_item_details(self, item):
