@@ -1,369 +1,345 @@
 {
-    "天空_晴天_白天": {
-        "file": "assets/bg/bg01_am.jpg",
-        "description": "Auto-scanned background"
-    },
-    "天空_雨天_白天": {
+    "天空_上午_雨天": {
         "file": "assets/bg/bg01_am_r.jpg",
         "description": "Auto-scanned background"
     },
-    "天空_晴天_夜晚": {
-        "file": "assets/bg/bg01_n.jpg",
+    "天空_上午_晴天": {
+        "file": "assets/bg/bg01_am.jpg",
         "description": "Auto-scanned background"
     },
-    "天空_晴天_深夜": {
-        "file": "assets/bg/bg01_n_l.jpg",
-        "description": "Auto-scanned background"
-    },
-    "天空_雨天_夜晚": {
+    "天空_夜晚_雨天": {
         "file": "assets/bg/bg01_n_r.jpg",
         "description": "Auto-scanned background"
     },
-    "天空_晴天_黄昏": {
-        "file": "assets/bg/bg01_pm.jpg",
+    "天空_夜晚_晴天": {
+        "file": "assets/bg/bg01_n.jpg",
         "description": "Auto-scanned background"
     },
-    "天空_雨天_黄昏": {
+    "天空_下午_雨天": {
         "file": "assets/bg/bg01_pm_r.jpg",
         "description": "Auto-scanned background"
     },
-    "吸顶灯_白天": {
+    "天空_下午_晴天": {
+        "file": "assets/bg/bg01_pm.jpg",
+        "description": "Auto-scanned background"
+    },
+    "吸顶灯_上午_晴天": {
         "file": "assets/bg/bg02_am.jpg",
         "description": "Auto-scanned background"
     },
-    "吸顶灯_关灯_夜晚": {
+    "吸顶灯_夜晚_晴天_关灯": {
         "file": "assets/bg/bg02_n_c.jpg",
         "description": "Auto-scanned background"
     },
-    "吸顶灯_开灯_夜晚": {
+    "吸顶灯_夜晚_晴天_开灯": {
         "file": "assets/bg/bg02_n_o.jpg",
         "description": "Auto-scanned background"
     },
-    "吸顶灯_下午": {
+    "吸顶灯_下午_晴天": {
         "file": "assets/bg/bg02_pm.jpg",
         "description": "Auto-scanned background"
     },
-    "邱诚家_上午": {
-        "file": "assets/bg/bg03_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "邱诚家_上午_开电视": {
+    "邱诚家_上午_晴天_开电视": {
         "file": "assets/bg/bg03_aml_t.jpg",
         "description": "Auto-scanned background"
     },
-    "邱诚家_上午_关窗帘": {
+    "邱诚家_上午_雨天_关窗帘": {
         "file": "assets/bg/bg03_aml_w_r.jpg",
         "description": "Auto-scanned background"
     },
-    "邱诚家_夜晚": {
-        "file": "assets/bg/bg03_n.jpg",
+    "邱诚家_上午_晴天": {
+        "file": "assets/bg/bg03_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "邱诚家_夜晚_开电视": {
-        "file": "assets/bg/bg03_nl_c_t.jpg",
-        "description": "Auto-scanned background"
-    },
-    "邱诚家_夜晚_开灯": {
+    "邱诚家_夜晚_晴天_开灯": {
         "file": "assets/bg/bg03_nl_o.jpg",
         "description": "Auto-scanned background"
     },
-    "邱诚家_夜晚_开灯_下雨": {
+    "邱诚家_夜晚_晴天_关灯_开电视": {
+        "file": "assets/bg/bg03_nl_c_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_雨天_开灯_开电视": {
+        "file": "assets/bg/bg03_nl_r_t.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家_夜晚_雨天_开灯": {
         "file": "assets/bg/bg03_nl_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg03_nl_r_ju": {
-        "file": "assets/bg/bg03_nl_r_ju.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg03_nl_tu": {
-        "file": "assets/bg/bg03_nl_tu.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg03_n_r_t": {
-        "file": "assets/bg/bg03_n_r_t.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg03_n_r_tu": {
-        "file": "assets/bg/bg03_n_r_tu.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg04_aml": {
-        "file": "assets/bg/bg04_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg04_am_r": {
+    "邱诚家卧室_上午_雨天": {
         "file": "assets/bg/bg04_am_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg04_nl_ooo": {
-        "file": "assets/bg/bg04_nl_ooo.jpg",
+    "邱诚家卧室_上午_晴天": {
+        "file": "assets/bg/bg04_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg04_n_oool": {
-        "file": "assets/bg/bg04_n_oool.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg04_n_r_c": {
+    "邱诚家卧室_夜晚_雨天_关灯": {
         "file": "assets/bg/bg04_n_r_c.jpg",
         "description": "Auto-scanned background"
     },
-    "bg04_pml": {
+    "邱诚家卧室_夜晚_晴天_开灯": {
+        "file": "assets/bg/bg04_nl_ooo.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚家卧室_下午_晴天": {
         "file": "assets/bg/bg04_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg05_am": {
+    "文芷小区门口_上午_晴天": {
         "file": "assets/bg/bg05_am.jpg",
         "description": "Auto-scanned background"
     },
-    "bg05_nl": {
+    "文芷小区门口_夜晚_晴天": {
         "file": "assets/bg/bg05_nl.jpg",
         "description": "Auto-scanned background"
     },
-    "bg05_pml": {
+    "文芷小区门口_下午_晴天": {
         "file": "assets/bg/bg05_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg05_r": {
+    "文芷小区门口_雨天": {
         "file": "assets/bg/bg05_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg06_aml": {
+    "墨小菊家_上午_晴天": {
         "file": "assets/bg/bg06_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg06_nl": {
-        "file": "assets/bg/bg06_nl.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg06_nl_r": {
+    "墨小菊家_夜晚_雨天": {
         "file": "assets/bg/bg06_nl_r.jpg",
         "description": "Auto-scanned background"
     },
-    "BG06_pml": {
+    "墨小菊家_夜晚_晴天": {
+        "file": "assets/bg/bg06_nl.jpg",
+        "description": "Auto-scanned background"
+    },
+    "墨小菊家_下午_晴天": {
         "file": "assets/bg/BG06_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg07_aml": {
-        "file": "assets/bg/bg07_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg07_am_cp": {
+    "墨小菊卧室_上午_晴天_开电脑": {
         "file": "assets/bg/bg07_am_cp.jpg",
         "description": "Auto-scanned background"
     },
-    "bg07_n": {
+    "墨小菊卧室_上午_晴天": {
+        "file": "assets/bg/bg07_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "墨小菊卧室_夜晚_晴天_开灯": {
         "file": "assets/bg/bg07_n.jpg",
         "description": "Auto-scanned background"
     },
-    "bg07_nl_ccp": {
+    "墨小菊卧室_夜晚_晴天_关灯_开电脑": {
         "file": "assets/bg/bg07_nl_ccp.jpg",
         "description": "Auto-scanned background"
     },
-    "bg07_nl_cp": {
+    "墨小菊卧室_夜晚_晴天_开灯_开电脑": {
         "file": "assets/bg/bg07_nl_cp.jpg",
         "description": "Auto-scanned background"
     },
-    "bg08_aml": {
-        "file": "assets/bg/bg08_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg08_aml_r": {
-        "file": "assets/bg/bg08_aml_r.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg08_am_c": {
+    "邱诚小区楼下_上午_阴天": {
         "file": "assets/bg/bg08_am_c.jpg",
         "description": "Auto-scanned background"
     },
-    "bg08_n": {
+    "邱诚小区楼下_上午_雨天": {
+        "file": "assets/bg/bg08_aml_r.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚小区楼下_上午_晴天": {
+        "file": "assets/bg/bg08_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "邱诚小区楼下_夜晚_晴天": {
         "file": "assets/bg/bg08_n.jpg",
         "description": "Auto-scanned background"
     },
-    "bg08_pm": {
+    "邱诚小区楼下_下午_晴天": {
         "file": "assets/bg/bg08_pm.jpg",
         "description": "Auto-scanned background"
     },
-    "bg09_am": {
+    "街道_上午_晴天": {
         "file": "assets/bg/bg09_am.jpg",
         "description": "Auto-scanned background"
     },
-    "bg09_aml_r": {
+    "街道_上午_雨天": {
         "file": "assets/bg/bg09_aml_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg09_n": {
+    "街道_夜晚_晴天": {
         "file": "assets/bg/bg09_n.jpg",
         "description": "Auto-scanned background"
     },
-    "bg09_pml": {
+    "街道_下午_晴天": {
         "file": "assets/bg/bg09_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg10_aml": {
-        "file": "assets/bg/bg10_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg10_aml_ydh_p": {
-        "file": "assets/bg/bg10_aml_ydh_p.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg10_am_r": {
+    "学校门口_上午_雨天": {
         "file": "assets/bg/bg10_am_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg10_am_yd": {
+    "学校门口_上午_晴天_运动会": {
         "file": "assets/bg/bg10_am_yd.jpg",
         "description": "Auto-scanned background"
     },
-    "bg10_pm": {
-        "file": "assets/bg/bg10_pm.jpg",
+    "学校门口_上午_晴天_运动会_有人": {
+        "file": "assets/bg/bg10_aml_ydh_p.jpg",
         "description": "Auto-scanned background"
     },
-    "bg10_pm_ydh": {
+    "学校门口_上午_晴天": {
+        "file": "assets/bg/bg10_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "学校门口_下午_晴天_运动会": {
         "file": "assets/bg/bg10_pm_ydh.jpg",
         "description": "Auto-scanned background"
     },
-    "bg11_aml": {
-        "file": "assets/bg/bg11_aml.jpg",
+    "学校门口_下午_晴天": {
+        "file": "assets/bg/bg10_pm.jpg",
         "description": "Auto-scanned background"
     },
-    "bg11_aml_r": {
+    "学校走廊_上午_雨天": {
         "file": "assets/bg/bg11_aml_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg11_aml_yd": {
+    "学校走廊_上午_晴天_运动会": {
         "file": "assets/bg/bg11_aml_yd.jpg",
         "description": "Auto-scanned background"
     },
-    "bg11_pml": {
+    "学校走廊_上午_晴天": {
+        "file": "assets/bg/bg11_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "学校走廊_下午_晴天": {
         "file": "assets/bg/bg11_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg12_aml": {
-        "file": "assets/bg/bg12_aml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg12_aml_r": {
+    "班级中_上午_雨天": {
         "file": "assets/bg/bg12_aml_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg12_pml": {
+    "班级中_上午_晴天": {
+        "file": "assets/bg/bg12_aml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "班级中_下午_晴天": {
         "file": "assets/bg/bg12_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg13_aml": {
+    "食堂_上午_晴天": {
         "file": "assets/bg/bg13_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg13_pml": {
+    "食堂_下午_晴天": {
         "file": "assets/bg/bg13_pml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg14_am": {
-        "file": "assets/bg/bg14_am.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg14_aml_yd": {
-        "file": "assets/bg/bg14_aml_yd.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg14_am_ydh_p": {
+    "操场_上午_晴天_运动会_有人": {
         "file": "assets/bg/bg14_am_ydh_p.jpg",
         "description": "Auto-scanned background"
     },
-    "bg14_pm_ydh": {
+    "操场_上午_晴天": {
+        "file": "assets/bg/bg14_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "操场_上午_晴天_运动会": {
+        "file": "assets/bg/bg14_aml_yd.jpg",
+        "description": "Auto-scanned background"
+    },
+    "操场_下午_晴天_运动会": {
         "file": "assets/bg/bg14_pm_ydh.jpg",
         "description": "Auto-scanned background"
     },
-    "bg15_am": {
-        "file": "assets/bg/bg15_am.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg15_aml_d_w": {
-        "file": "assets/bg/bg15_aml_d_w.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg15_am_cp": {
-        "file": "assets/bg/bg15_am_cp.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg15_am_cp_d": {
+    "学生会室_上午_晴天_开电脑_关门": {
         "file": "assets/bg/bg15_am_cp_d.jpg",
         "description": "Auto-scanned background"
     },
-    "bg15_am_d": {
+    "学生会室_上午_晴天_开电脑": {
+        "file": "assets/bg/bg15_am_cp.jpg",
+        "description": "Auto-scanned background"
+    },
+    "学生会室_上午_晴天_关门": {
         "file": "assets/bg/bg15_am_d.jpg",
         "description": "Auto-scanned background"
     },
-    "bg15_am_r": {
+    "学生会室_上午_雨天": {
         "file": "assets/bg/bg15_am_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg15_am_w": {
+    "学生会室_上午_晴天_窗帘": {
         "file": "assets/bg/bg15_am_w.jpg",
         "description": "Auto-scanned background"
     },
-    "bg15_pm_cp": {
+    "学生会室_上午_晴天": {
+        "file": "assets/bg/bg15_am.jpg",
+        "description": "Auto-scanned background"
+    },
+    "学生会室_上午_晴天_关门_窗帘": {
+        "file": "assets/bg/bg15_aml_d_w.jpg",
+        "description": "Auto-scanned background"
+    },
+    "学生会室_下午_晴天_开电脑": {
         "file": "assets/bg/bg15_pm_cp.jpg",
         "description": "Auto-scanned background"
     },
-    "bg16_aml": {
+    "画室_上午_晴天": {
         "file": "assets/bg/bg16_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg16_nl": {
+    "画室_夜晚_晴天": {
         "file": "assets/bg/bg16_nl.jpg",
         "description": "Auto-scanned background"
     },
-    "bg16_pml": {
-        "file": "assets/bg/bg16_pml.jpg",
-        "description": "Auto-scanned background"
-    },
-    "bg16_pml_r": {
+    "画室_下午_雨天": {
         "file": "assets/bg/bg16_pml_r.jpg",
         "description": "Auto-scanned background"
     },
-    "bg17_aml": {
+    "画室_下午_晴天": {
+        "file": "assets/bg/bg16_pml.jpg",
+        "description": "Auto-scanned background"
+    },
+    "咖啡厅门口_上午_晴天": {
         "file": "assets/bg/bg17_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg17_nl": {
+    "咖啡厅门口_夜晚_晴天": {
         "file": "assets/bg/bg17_nl.jpg",
         "description": "Auto-scanned background"
     },
-    "bg17_pm": {
+    "咖啡厅门口_下午_晴天": {
         "file": "assets/bg/bg17_pm.jpg",
         "description": "Auto-scanned background"
     },
-    "bg18_aml": {
+    "稻当劳餐厅_上午_晴天": {
         "file": "assets/bg/bg18_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg18_nl": {
+    "稻当劳餐厅_夜晚_晴天": {
         "file": "assets/bg/bg18_nl.jpg",
         "description": "Auto-scanned background"
     },
-    "bg19_aml": {
+    "美术用品书籍商店_上午_晴天": {
         "file": "assets/bg/bg19_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg20_am": {
+    "老师办公室_上午_晴天": {
         "file": "assets/bg/bg20_am.jpg",
         "description": "Auto-scanned background"
     },
-    "bg20_pm": {
+    "老师办公室_下午_晴天": {
         "file": "assets/bg/bg20_pm.jpg",
         "description": "Auto-scanned background"
     },
-    "bg21_aml": {
+    "中山公园_上午_晴天": {
         "file": "assets/bg/bg21_aml.jpg",
         "description": "Auto-scanned background"
     },
-    "bg21_nl": {
+    "中山公园_夜晚_晴天": {
         "file": "assets/bg/bg21_nl.jpg",
         "description": "Auto-scanned background"
     },
-    "bg21_pm": {
+    "中山公园_下午_晴天": {
         "file": "assets/bg/bg21_pm.jpg",
         "description": "Auto-scanned background"
     }

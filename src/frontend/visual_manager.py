@@ -36,7 +36,7 @@ class BackgroundItem(QObject, QGraphicsPixmapItem):
             QGraphicsPixmapItem.__init__(self)
 
     def get_opacity(self):
-        return self.opacity()
+        return QGraphicsPixmapItem.opacity(self)
     
     def set_opacity(self, opacity):
         self.setOpacity(opacity)
@@ -197,6 +197,11 @@ class VisualManager(QObject):
                 return
 
         pixmap = QPixmap(real_path)
+        
+        # Scale to standard 1080p resolution to ensure it fills the screen
+        # Using IgnoreAspectRatio to force fill (user requirement)
+        if not pixmap.isNull():
+            pixmap = pixmap.scaled(1920, 1080, Qt.AspectRatioMode.IgnoreAspectRatio, Qt.TransformationMode.SmoothTransformation)
         
         if self.active_bg == 1:
             target_item = self.bg_layer_2
