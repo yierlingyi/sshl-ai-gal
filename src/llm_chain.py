@@ -146,6 +146,75 @@ class LLMChain:
         except Exception as e:
             return f"[System Error] Failed to generate response: {e}"
 
+    async def run_opening_sequence(self) -> str:
+        """
+        Special one-off flow for new game opening.
+        1. Read user persona.
+        2. Planner -> generates opening plan (<guide>).
+        3. Storyteller -> generates text based on persona + plan (<game>).
+        4. Director -> adds commands.
+        """
+        # Read Persona
+        persona = "Unknown"
+        if os.path.exists("assets/用户设定/用户人设.txt"):
+            with open("assets/用户设定/用户人设.txt", "r", encoding="utf-8") as f:
+                persona = f.read()
+
+        # Step 1: Planner
+        # Load prompt template
+        plan_prompt_path = "assets/提示词/开局_剧情规划.txt"
+        if not os.path.exists(plan_prompt_path):
+            return "[Error] Opening planner prompt missing."
+        
+        with open(plan_prompt_path, "r", encoding="utf-8") as f:
+            plan_template = f.read()
+        
+        plan_input = plan_template.replace("{{user_persona}}", persona)
+        
+        messages_plan = [{"role": "user", "content": plan_input}]
+        
+        # Call Planner (Logic Model)
+        print("[Opening] Running Planner...")
+        opening_plan_xml = await self._retry_loop(
+            "Opening Planner",
+            self.client_logic.chat_completion,
+            messages_plan,
+            model=self.model_logic,
+            tag="guide", # Expecting <guide>
+            max_retries=3
+        )
+        
+        # Step 2: Storyteller
+        story_prompt_path = "assets/提示词/开局_故事生成.txt"
+        if not os.path.exists(story_prompt_path):
+             return "[Error] Opening storyteller prompt missing."
+
+        with open(story_prompt_path, "r", encoding="utf-8") as f:
+            story_template = f.read()
+            
+        story_input = story_template.replace("{{user_persona}}", persona).replace("{{opening_plan}}", opening_plan_xml)
+        
+        messages_story = [{"role": "user", "content": story_input}]
+        
+        print("[Opening] Running Storyteller...")
+        story_text = await self._retry_loop(
+            "Opening Storyteller",
+            self.client_story.chat_completion,
+            messages_story,
+            model=self.model_story,
+            tag="game",
+            max_retries=3
+        )
+        
+        # Save history
+        self.memory.add_message("assistant", story_text)
+
+        # Step 3: Director
+        print("[Opening] Running Director...")
+        final_output = await self.run_director(story_text)
+        
+        return final_output
+
     def _handle_background_tasks(self):
         """
         Checks triggers and launches critical background tasks.

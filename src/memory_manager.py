@@ -183,6 +183,19 @@ class MemoryManager:
         with open(self.path_plot_plan, 'w', encoding='utf-8') as f:
             f.write('\n'.join(self.plot_guidance))
 
+    def clear_memory(self):
+        self.raw_history = []
+        self.small_summaries = []
+        self.big_summary_storage = {}
+        self._active_big_summary = "The story has just begun."
+        self.plot_guidance = []
+        self.state = GameState()
+        self.global_layer_count = 0
+        self.last_summary_layer = 0
+        self.small_summary_count_since_plan = 0
+        self._save_persistent_data()
+        self._notify_observers()
+
     def add_observer(self, callback):
         """Register a callback to be called when memory updates."""
         self._observers.append(callback)

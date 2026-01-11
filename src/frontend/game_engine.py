@@ -117,6 +117,30 @@ class GameEngine(QObject):
             print(f"Error: {e}")
             self.state = GameState.IDLE
 
+    @qasync.asyncSlot()
+    async def start_new_game_flow(self):
+        """Kicks off the special opening sequence."""
+        self.state = GameState.GENERATING
+        self.text_updated.emit("系统", "正在生成开场剧情... (规划 -> 撰写 -> 导演)")
+        
+        # Clear Memory for new game
+        if self.backend and hasattr(self.backend, "memory"):
+             self.backend.memory.clear_memory() # Ensure we start fresh
+        
+        try:
+            response = await self.backend.run_opening_sequence()
+            
+            # Check for error
+            if response.startswith("[Error") or response.startswith("[System Error"):
+                 self.text_updated.emit("系统", response)
+                 self.state = GameState.IDLE
+                 return
+
+            self._start_sequence(response)
+        except Exception as e:
+            self.text_updated.emit("Error", f"Opening failed: {e}")
+            self.state = GameState.IDLE
+
     def _start_sequence(self, response_text: str):
         self.state = GameState.PLAYING
         

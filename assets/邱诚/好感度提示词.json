@@ -1,0 +1,18 @@
+[
+    {
+        "threshold": 0,
+        "attitude": "She acts cold and distant, often making sarcastic remarks."
+    },
+    {
+        "threshold": 20,
+        "attitude": "She is polite but keeps a professional distance."
+    },
+    {
+        "threshold": 50,
+        "attitude": "She shows genuine concern but tries to hide it with clumsy excuses."
+    },
+    {
+        "threshold": 80,
+        "attitude": "She is openly affectionate and relies on you deeply."
+    }
+]

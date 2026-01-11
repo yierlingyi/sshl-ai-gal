@@ -58,6 +58,123 @@ class MainMenuPage(QWidget):
             
         self.setLayout(layout)
 
+# --- New Game Selection Page ---
+class NewGamePage(QWidget):
+    start_qiu_cheng_signal = Signal()
+    start_custom_signal = Signal()
+    back_signal = Signal()
+
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        
+        lbl = QLabel("选择你的角色")
+        lbl.setStyleSheet("font-size: 24px; font-weight: bold; margin-bottom: 30px;")
+        layout.addWidget(lbl)
+        
+        btn_qiu = QPushButton("我是 邱诚")
+        btn_qiu.setFixedSize(200, 60)
+        btn_qiu.clicked.connect(self.on_qiu_cheng)
+        
+        btn_custom = QPushButton("我是 自设角色")
+        btn_custom.setFixedSize(200, 60)
+        btn_custom.clicked.connect(self.start_custom_signal.emit)
+        
+        btn_back = QPushButton("返回")
+        btn_back.setFixedSize(200, 40)
+        btn_back.clicked.connect(self.back_signal.emit)
+        
+        layout.addWidget(btn_qiu)
+        layout.addWidget(btn_custom)
+        layout.addSpacing(20)
+        layout.addWidget(btn_back)
+        self.setLayout(layout)
+
+    def on_qiu_cheng(self):
+        try:
+            src = "assets/邱诚/邱诚.txt"
+            dst = "assets/用户设定/用户人设.txt"
+            
+            # Ensure dir exists
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            
+            if os.path.exists(src):
+                shutil.copy(src, dst)
+                self.start_qiu_cheng_signal.emit()
+            else:
+                QMessageBox.warning(self, "Error", f"未找到邱诚人设文件: {src}")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", str(e))
+
+class CustomPersonaPage(QWidget):
+    confirm_signal = Signal()
+    back_signal = Signal()
+
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout()
+        
+        lbl = QLabel("设定你的角色")
+        lbl.setStyleSheet("font-size: 20px; font-weight: bold;")
+        layout.addWidget(lbl)
+        
+        self.txt_persona = QTextEdit()
+        self.txt_persona.setPlaceholderText("请输入你的名字、性格、背景等...")
+        self.txt_persona.setStyleSheet("font-size: 14px;")
+        layout.addWidget(self.txt_persona)
+        
+        btn_layout = QHBoxLayout()
+        btn_ok = QPushButton("确定并开始")
+        btn_ok.clicked.connect(self.on_confirm)
+        btn_back = QPushButton("返回")
+        btn_back.clicked.connect(self.back_signal.emit)
+        
+        btn_layout.addStretch()
+        btn_layout.addWidget(btn_back)
+        btn_layout.addWidget(btn_ok)
+        
+        layout.addLayout(btn_layout)
+        self.setLayout(layout)
+
+    def on_confirm(self):
+        text = self.txt_persona.toPlainText().strip()
+        if not text:
+            QMessageBox.warning(self, "Warning", "人设不能为空")
+            return
+            
+        try:
+            # 1. Save User Persona
+            dst = "assets/用户设定/用户人设.txt"
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            with open(dst, "w", encoding="utf-8") as f:
+                f.write(text)
+            
+            # 2. Add Qiu Cheng as NPC
+            # Logic: Copy assets/邱诚/* to assets/NPC人设/重要NPC/邱诚/
+            npc_root = "assets/NPC人设/重要NPC"
+            npc_name = "邱诚"
+            npc_dir = os.path.join(npc_root, npc_name)
+            
+            src_dir = "assets/邱诚"
+            src_profile = os.path.join(src_dir, "邱诚.txt")
+            src_rules = os.path.join(src_dir, "好感度提示词.json")
+            
+            if not os.path.exists(npc_dir):
+                os.makedirs(npc_dir)
+            
+            # Copy Profile -> 人物人设.txt
+            if os.path.exists(src_profile):
+                shutil.copy(src_profile, os.path.join(npc_dir, "人物人设.txt"))
+                
+            # Copy Rules -> 好感度提示词.json
+            if os.path.exists(src_rules):
+                shutil.copy(src_rules, os.path.join(npc_dir, "好感度提示词.json"))
+
+            self.confirm_signal.emit()
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to save: {e}")
+
 # --- Config Page ---
 class ConfigPage(QWidget):
     back_signal = Signal()

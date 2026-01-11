@@ -9,7 +9,7 @@ import re
 from .visual_manager import VisualManager
 from .audio_manager import AudioManager
 from .game_engine import GameEngine
-from .pages import MainMenuPage, ConfigPage, SaveLoadPage, GamePage, MemoryPage, EditorPage, DebugPage
+from .pages import MainMenuPage, ConfigPage, SaveLoadPage, GamePage, MemoryPage, EditorPage, DebugPage, NewGamePage, CustomPersonaPage
 from ..llm_chain import LLMChain
 
 import json
@@ -51,6 +51,8 @@ class MainWindow(QMainWindow):
         self.page_memory = MemoryPage()
         self.page_editor = EditorPage()
         self.page_debug = DebugPage(self.visual, self.audio) # Index 8
+        self.page_new_game = NewGamePage() # Index 9
+        self.page_custom = CustomPersonaPage() # Index 10
         
         # In-Game Sub-pages
         self.page_game_config = ConfigPage()
@@ -65,10 +67,20 @@ class MainWindow(QMainWindow):
         self.stack.addWidget(self.page_memory) # Index 6
         self.stack.addWidget(self.page_editor) # Index 7
         self.stack.addWidget(self.page_debug) # Index 8
+        self.stack.addWidget(self.page_new_game) # Index 9
+        self.stack.addWidget(self.page_custom) # Index 10
         
         # 4. Connect Signals
         # Main Menu
-        self.page_main.start_signal.connect(lambda: self.switch_to(3))
+        self.page_main.start_signal.connect(lambda: self.switch_to(9))
+        
+        # New Game Pages
+        self.page_new_game.back_signal.connect(lambda: self.switch_to(0))
+        self.page_new_game.start_qiu_cheng_signal.connect(self.start_new_game)
+        self.page_new_game.start_custom_signal.connect(lambda: self.switch_to(10))
+        
+        self.page_custom.back_signal.connect(lambda: self.switch_to(9))
+        self.page_custom.confirm_signal.connect(self.start_new_game)
         self.page_main.config_signal.connect(lambda: self.switch_to(1))
         self.page_main.load_signal.connect(self.on_main_load)
         self.page_main.editor_signal.connect(lambda: self.switch_to(7))
@@ -113,6 +125,11 @@ class MainWindow(QMainWindow):
         self.backend.memory.add_observer(self.memory_updated_signal.emit)
         
         self.reload_config()
+
+    @qasync.asyncSlot()
+    async def start_new_game(self):
+        self.switch_to(3) # Game Page
+        await self.engine.start_new_game_flow()
 
     def on_memory_updated(self):
         big = self.backend.memory.big_summary
