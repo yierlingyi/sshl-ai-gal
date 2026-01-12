@@ -11,6 +11,7 @@ from .audio_manager import AudioManager
 from .game_engine import GameEngine
 from .pages import MainMenuPage, ConfigPage, SaveLoadPage, GamePage, MemoryPage, EditorPage, DebugPage, NewGamePage, CustomPersonaPage
 from ..llm_chain import LLMChain
+from .styles import MAIN_STYLESHEET
 
 import json
 import os
@@ -22,6 +23,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("LLM-Galgame-Engine (LLM Galgame 引擎)")
         self.resize(1280, 720)
+        self.setStyleSheet(MAIN_STYLESHEET)
         
         # 1. Managers
         self.scene = QGraphicsScene(0, 0, 1920, 1080)

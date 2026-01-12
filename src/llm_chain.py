@@ -162,7 +162,7 @@ class LLMChain:
 
         # Step 1: Planner
         # Load prompt template
-        plan_prompt_path = "assets/提示词/开局_剧情规划.txt"
+        plan_prompt_path = "assets/提示词/开局/planner.txt"
         if not os.path.exists(plan_prompt_path):
             return "[Error] Opening planner prompt missing."
         
@@ -185,7 +185,7 @@ class LLMChain:
         )
         
         # Step 2: Storyteller
-        story_prompt_path = "assets/提示词/开局_故事生成.txt"
+        story_prompt_path = "assets/提示词/开局/storyteller.txt"
         if not os.path.exists(story_prompt_path):
              return "[Error] Opening storyteller prompt missing."
 

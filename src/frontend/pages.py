@@ -15,6 +15,7 @@ import re
 import qasync
 from ..infrastructure import APIClient
 from .game_engine import GameEngine
+from .styles import MENU_BUTTON_STYLE, GAME_TEXT_FRAME_STYLE, GAME_INPUT_STYLE, SAVE_SLOT_STYLE
 
 # --- Main Menu ---
 class MainMenuPage(QWidget):
@@ -22,41 +23,64 @@ class MainMenuPage(QWidget):
     load_signal = Signal()
     config_signal = Signal()
     editor_signal = Signal() 
-    debug_signal = Signal() # New signal
+    debug_signal = Signal()
     exit_signal = Signal()
 
     def __init__(self):
         super().__init__()
-        layout = QVBoxLayout()
-        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        
-        title = QLabel("LLM-Galgame-Engine")
-        title.setStyleSheet("font-size: 32px; font-weight: bold; margin-bottom: 50px;")
-        layout.addWidget(title)
-        
-        btn_start = QPushButton("开始游戏")
-        btn_start.clicked.connect(self.start_signal.emit)
-        
-        btn_load = QPushButton("读取游戏")
-        btn_load.clicked.connect(self.load_signal.emit)
-        
-        btn_config = QPushButton("设置")
-        btn_config.clicked.connect(self.config_signal.emit)
-        
-        btn_editor = QPushButton("编辑器 (开发)")
-        btn_editor.clicked.connect(self.editor_signal.emit)
+        # Try to load a nice background
+        bg_path = "assets/bg/bg01_am.jpg"
+        if os.path.exists(bg_path):
+            self.bg_pixmap = QPixmap(bg_path)
+        else:
+            self.bg_pixmap = QPixmap()
 
-        btn_debug = QPushButton("调试控制台")
-        btn_debug.clicked.connect(self.debug_signal.emit)
+        # Main Layout
+        layout = QVBoxLayout()
+        # Align buttons to the right-bottom or center? 
+        # Galgames often have menus on the right or center. Let's do Right-Center.
+        layout.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        layout.setContentsMargins(0, 0, 150, 0) # Right padding
         
-        btn_exit = QPushButton("退出")
-        btn_exit.clicked.connect(self.exit_signal.emit)
+        # Title (Optional, maybe overlay?)
+        title = QLabel("三色绘恋: AIGAL")
+        title.setAlignment(Qt.AlignmentFlag.AlignRight)
+        title.setStyleSheet("font-size: 48px; font-weight: bold; color: white; background: transparent; font-family: 'Microsoft YaHei'; margin-bottom: 40px;")
+        # Add shadow
+        # ... (Shadow effect needs QGraphicsEffect, simple style is safer)
         
-        for btn in [btn_start, btn_load, btn_config, btn_editor, btn_debug, btn_exit]:
-            btn.setFixedSize(200, 50)
-            layout.addWidget(btn)
+        container = QWidget()
+        c_layout = QVBoxLayout(container)
+        c_layout.addWidget(title)
+        c_layout.setSpacing(15)
+        
+        # Buttons
+        btns = [
+            ("开始游戏", self.start_signal),
+            ("读取游戏", self.load_signal),
+            ("设置", self.config_signal),
+            ("编辑器", self.editor_signal),
+            ("调试", self.debug_signal),
+            ("退出", self.exit_signal)
+        ]
+        
+        for text, signal in btns:
+            btn = QPushButton(text)
+            btn.setFixedSize(240, 55)
+            btn.setStyleSheet(MENU_BUTTON_STYLE)
+            btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            btn.clicked.connect(signal.emit)
+            c_layout.addWidget(btn)
             
+        layout.addWidget(container)
         self.setLayout(layout)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        if not self.bg_pixmap.isNull():
+            painter.drawPixmap(self.rect(), self.bg_pixmap)
+        else:
+            painter.fillRect(self.rect(), QColor("#222"))
 
 # --- New Game Selection Page ---
 class NewGamePage(QWidget):
@@ -66,30 +90,48 @@ class NewGamePage(QWidget):
 
     def __init__(self):
         super().__init__()
+        # Load background
+        bg_path = "assets/bg/bg01_am.jpg"
+        if os.path.exists(bg_path):
+            self.bg_pixmap = QPixmap(bg_path)
+        else:
+            self.bg_pixmap = QPixmap()
+
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         
         lbl = QLabel("选择你的角色")
-        lbl.setStyleSheet("font-size: 24px; font-weight: bold; margin-bottom: 30px;")
+        lbl.setStyleSheet("font-size: 32px; font-weight: bold; margin-bottom: 40px; color: white; font-family: 'Microsoft YaHei';")
         layout.addWidget(lbl)
         
         btn_qiu = QPushButton("我是 邱诚")
-        btn_qiu.setFixedSize(200, 60)
+        btn_qiu.setFixedSize(240, 60)
+        btn_qiu.setStyleSheet(MENU_BUTTON_STYLE)
         btn_qiu.clicked.connect(self.on_qiu_cheng)
         
         btn_custom = QPushButton("我是 自设角色")
-        btn_custom.setFixedSize(200, 60)
+        btn_custom.setFixedSize(240, 60)
+        btn_custom.setStyleSheet(MENU_BUTTON_STYLE)
         btn_custom.clicked.connect(self.start_custom_signal.emit)
         
         btn_back = QPushButton("返回")
-        btn_back.setFixedSize(200, 40)
+        btn_back.setFixedSize(240, 40)
+        btn_back.setStyleSheet(MENU_BUTTON_STYLE)
         btn_back.clicked.connect(self.back_signal.emit)
         
         layout.addWidget(btn_qiu)
+        layout.addSpacing(15)
         layout.addWidget(btn_custom)
-        layout.addSpacing(20)
+        layout.addSpacing(30)
         layout.addWidget(btn_back)
         self.setLayout(layout)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        if not self.bg_pixmap.isNull():
+            painter.drawPixmap(self.rect(), self.bg_pixmap)
+        else:
+            painter.fillRect(self.rect(), QColor("#222"))
 
     def on_qiu_cheng(self):
         try:
@@ -113,29 +155,54 @@ class CustomPersonaPage(QWidget):
 
     def __init__(self):
         super().__init__()
+        # Load background
+        bg_path = "assets/bg/bg01_am.jpg"
+        if os.path.exists(bg_path):
+            self.bg_pixmap = QPixmap(bg_path)
+        else:
+            self.bg_pixmap = QPixmap()
+
         layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         
+        container = QWidget()
+        container.setStyleSheet("background-color: rgba(0, 0, 0, 0.7); border-radius: 10px; padding: 20px;")
+        container.setFixedWidth(600)
+        c_layout = QVBoxLayout(container)
+
         lbl = QLabel("设定你的角色")
-        lbl.setStyleSheet("font-size: 20px; font-weight: bold;")
-        layout.addWidget(lbl)
+        lbl.setStyleSheet("font-size: 24px; font-weight: bold; color: white; margin-bottom: 20px;")
+        c_layout.addWidget(lbl)
         
         self.txt_persona = QTextEdit()
-        self.txt_persona.setPlaceholderText("请输入你的名字、性格、背景等...")
-        self.txt_persona.setStyleSheet("font-size: 14px;")
-        layout.addWidget(self.txt_persona)
+        self.txt_persona.setPlaceholderText("请输入你的名字、性格、背景等...\n例如：我叫...，是一个...")
+        self.txt_persona.setStyleSheet("font-size: 16px; background-color: rgba(30, 30, 30, 0.9); color: white; border: 1px solid #555;")
+        self.txt_persona.setFixedHeight(300)
+        c_layout.addWidget(self.txt_persona)
         
         btn_layout = QHBoxLayout()
         btn_ok = QPushButton("确定并开始")
         btn_ok.clicked.connect(self.on_confirm)
+        btn_ok.setStyleSheet("background-color: #3498db; color: white; font-weight: bold; padding: 10px;")
+        
         btn_back = QPushButton("返回")
         btn_back.clicked.connect(self.back_signal.emit)
+        btn_back.setStyleSheet("padding: 10px;")
         
         btn_layout.addStretch()
         btn_layout.addWidget(btn_back)
         btn_layout.addWidget(btn_ok)
         
-        layout.addLayout(btn_layout)
+        c_layout.addLayout(btn_layout)
+        layout.addWidget(container)
         self.setLayout(layout)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        if not self.bg_pixmap.isNull():
+            painter.drawPixmap(self.rect(), self.bg_pixmap)
+        else:
+            painter.fillRect(self.rect(), QColor("#222"))
 
     def on_confirm(self):
         text = self.txt_persona.toPlainText().strip()
@@ -776,7 +843,7 @@ class SaveLoadPage(QWidget):
         for i in range(start_index, end_index):
             slot_id = i
             frame = QFrame()
-            frame.setFrameShape(QFrame.Shape.Box)
+            frame.setStyleSheet(SAVE_SLOT_STYLE)
             f_layout = QVBoxLayout()
             
             # Load Screenshot
@@ -1720,7 +1787,7 @@ class GamePage(QWidget):
         
         # Text Frame
         self.text_frame = QFrame()
-        self.text_frame.setStyleSheet("background-color: rgba(0, 0, 0, 0.85); border: 2px solid #555; border-radius: 15px;")
+        self.text_frame.setStyleSheet(GAME_TEXT_FRAME_STYLE)
         self.text_frame.setFixedHeight(260)
         tf_layout = QVBoxLayout(self.text_frame)
 
@@ -1753,7 +1820,7 @@ class GamePage(QWidget):
         
         self.input_field = QLineEdit()
         self.input_field.setPlaceholderText("在此输入回复...")
-        self.input_field.setStyleSheet("background-color: rgba(255, 255, 255, 0.95); border: 2px solid #888; border-radius: 5px; padding: 5px 10px; font-size: 20px; color: black;")
+        self.input_field.setStyleSheet(GAME_INPUT_STYLE)
         self.input_field.returnPressed.connect(self.handle_input)
         d_layout.addWidget(self.input_field)
         
