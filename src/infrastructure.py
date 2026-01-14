@@ -26,9 +26,10 @@ class APIClient:
         # but for efficiency, let's just use the current key logic.
         pass
 
-    async def chat_completion(self, messages: List[Dict[str, str]], model: str = "gpt-3.5-turbo", temperature: float = 0.7) -> str:
+    async def chat_completion(self, messages: List[Dict[str, str]], model: str = "gpt-3.5-turbo", temperature: float = 0.7, stream: bool = False) -> str:
         """
         Executes an async call to an LLM provider using OpenAI SDK.
+        Supports streaming (accumulates chunks and returns full text to maintain compatibility with logic).
         """
         api_key = self._get_next_key()
         
@@ -40,9 +41,19 @@ class APIClient:
             response = await client.chat.completions.create(
                 model=model,
                 messages=messages,
-                temperature=temperature
+                temperature=temperature,
+                stream=stream
             )
-            return response.choices[0].message.content
+            
+            if stream:
+                full_content = []
+                async for chunk in response:
+                    if chunk.choices and chunk.choices[0].delta.content:
+                        content = chunk.choices[0].delta.content
+                        full_content.append(content)
+                return "".join(full_content)
+            else:
+                return response.choices[0].message.content
         except Exception as e:
             print(f"[APIClient] Error: {e}")
             raise e

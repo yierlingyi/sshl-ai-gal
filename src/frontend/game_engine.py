@@ -32,6 +32,7 @@ class GameEngine(QObject):
         self.state = GameState.IDLE
         self.is_auto_mode = False
         self.text_speed = 50 # ms per char
+        self._current_speaker_name = "系统" # Default speaker
 
         self._execution_queue = []
         self._current_text_segment = ""
@@ -143,23 +144,36 @@ class GameEngine(QObject):
 
     def _start_sequence(self, response_text: str):
         self.state = GameState.PLAYING
+        self._current_speaker_name = "系统" # Reset speaker at start of sequence
+
+        # 0. Pre-process Speaker format
+        # Replace 【Name】『Content』 with [Speaker-Name]Content
+        # Using non-greedy match for content
+        processed_text = re.sub(r"【(.*?)】『(.*?)』", r"[Speaker-\1]\2", response_text)
         
         # 1. Execute instant commands (backgrounds, music, etc.)
         tag_pattern = re.compile(r"\[(.*?)\]")
-        tags = tag_pattern.findall(response_text)
+        tags = tag_pattern.findall(processed_text)
         
         for tag in tags:
+            # Skip Speaker tags during asset execution
+            if tag.startswith("Speaker-"):
+                continue
             self._execute_asset_command(tag)
             
         # 2. Prepare text sequence for playback
-        # Remove asset tags, but keep flow-control tags [r] and [C]
-        text_with_flow_tags = response_text
+        # Remove asset tags, but keep flow-control tags [r] and [C] AND [Speaker-...]
+        text_with_flow_tags = processed_text
         for tag in tags:
-            if not tag.upper() in ["R", "C"]:
-                 text_with_flow_tags = text_with_flow_tags.replace(f"[{tag}]", "")
+            if tag.upper() in ["R", "C"]:
+                 continue
+            if tag.startswith("Speaker-"):
+                 continue
+            text_with_flow_tags = text_with_flow_tags.replace(f"[{tag}]", "")
         
-        # Tokenize by flow-control tags
-        tokens = re.split(r'(\[r\]|\[C\])', text_with_flow_tags, flags=re.IGNORECASE)
+        # Tokenize by flow-control tags and Speaker tags
+        # Includes [Speaker-Name] in tokens
+        tokens = re.split(r'(\[r\]|\[C\]|\[Speaker-.*?\])', text_with_flow_tags, flags=re.IGNORECASE)
         
         self._execution_queue = [token.strip() for token in tokens if token.strip()]
         self._current_full_text = ""
@@ -187,6 +201,23 @@ class GameEngine(QObject):
                 # Manual mode: Wait for user input to clear
                 self.state = GameState.WAITING_CLEAR
 
+        elif segment.startswith("[Speaker-"):
+            # Extract speaker name
+            # Format: [Speaker-Name]
+            try:
+                # remove brackets
+                inner = segment[1:-1]
+                parts = inner.split("-", 1)
+                if len(parts) > 1:
+                    self._current_speaker_name = parts[1]
+                else:
+                    self._current_speaker_name = "系统"
+            except:
+                self._current_speaker_name = "系统"
+            
+            # Proceed to next token immediately
+            self._process_queue()
+
         else: # It's a text segment
             self.state = GameState.TYPING
             self._current_text_segment = segment
@@ -195,16 +226,17 @@ class GameEngine(QObject):
 
     def _perform_clear(self):
         self._current_full_text = "" # Clear visual text
+        self._current_speaker_name = "系统" # Reset speaker on clear
         self._sound_timer.stop() # Cancel any pending sound stop
         self.audio.stop_looping_sfx() # Stop any looping sounds
-        self.text_updated.emit("系统", self._current_full_text)
+        self.text_updated.emit(self._current_speaker_name, self._current_full_text)
 
     def _type_step(self):
         if self._typewriter_index < len(self._current_text_segment):
             self._typewriter_index += 1
             new_char = self._current_text_segment[self._typewriter_index-1]
             self._current_full_text += new_char
-            self.text_updated.emit("系统", self._current_full_text)
+            self.text_updated.emit(self._current_speaker_name, self._current_full_text)
         else:
             self.typing_timer.stop()
             # Finished typing this segment, move to the next

@@ -11,6 +11,7 @@
 *   **`main.py`**: 入口点。启动 PySide6 应用程序。
 *   **`src/frontend/`**: 包含 GUI 逻辑、游戏渲染引擎和页面管理。
 *   **`src/llm_chain.py`**: 核心逻辑链，管理与 LLM API 的交互。采用 3-API 架构 (Story, Summary, Logic)。
+*   **`src/infrastructure.py`**: 基础架构。`APIClient` 支持 **流式 (Streaming)** 和 **非流式** 传输（流式输出会自动汇聚成完整文本返回，以保证逻辑层兼容）。
 *   **`src/memory_manager.py`**: 管理游戏记忆、历史记录及存档。
 *   **`src/prompt_assembler.py`**: 通用提示词组装器，基于 `assets/prompts.json` 动态构建 Prompt。
 *   **`assets/`**: 存储所有游戏资源（图像、音频、文本配置、提示词）。
